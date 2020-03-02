@@ -14,7 +14,6 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPasswordForm: FormGroup;
   errorMessage = '';
-  submitMessage = '';
   loading;
   user : RegisterUser = new RegisterUser();
 
@@ -39,12 +38,12 @@ export class ForgotPasswordComponent implements OnInit {
       if(response.statusCode === 200) {
         console.log('Directing to another page')
         //this.router.navigate(['/password-update/:token']);
-        this.submitMessage = 'link sent to your mail, please verify it';
+        this.matSnackbar.open('Link sent to mail, please verify it', 'ok', { duration: 4000 });
       }
       else {
-        return this.router.navigate(['/forgot-password']);
+        this.router.navigate(['/forgot-password']);
+        this.matSnackbar.open('Error....!', 'Ok', { duration: 4000 });
       }
-      this.matSnackbar.open(response.message, 'ok', { duration: 4000 });
     },
     error =>
     {

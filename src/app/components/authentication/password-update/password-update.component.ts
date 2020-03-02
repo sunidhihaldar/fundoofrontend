@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-//import { PasswordValidator } from 'src/app/util/password-validator';
-
+import { PasswordValidator } from 'src/app/util/password-validator';
 @Component({
   selector: 'app-password-update',
   templateUrl: './password-update.component.html',
@@ -15,40 +14,40 @@ export class PasswordUpdateComponent implements OnInit {
   passwordUpdateForm: FormGroup;
   token: string;
 
-  constructor(private userService: UserService,
-              private router: Router,
-              private activteRoute: ActivatedRoute,
-              private matSnackbar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private activteRoute: ActivatedRoute,
+    private matSnackbar: MatSnackBar) { }
 
   ngOnInit() {
-    this.activteRoute.paramMap.subscribe((params: ParamMap) =>
-    {
+    this.activteRoute.paramMap.subscribe((params: ParamMap) => {
       this.token = params.get('token');
-    }),
-    this.passwordUpdateForm = new FormGroup({
-      newPassword: new FormControl('', [Validators.required]),
-      confirmNewPassword: new FormControl('', [Validators.required])
     });
+    this.passwordUpdateForm = this.formBuilder.group({
+      newPassword: ['', [Validators.required, Validators.minLength(4)]],
+      confirmPassword: ['', [Validators.required]]
+      //new FormControl('', [Validators.required, Validators.minLength(4)]),
+      //new FormControl('', [Validators.required])
+    },
+      {
+        validator: PasswordValidator('newPassword', 'confirmPassword')
+      }
+    );
   }
 
   onSubmit() {
-    this.token = this.activteRoute.snapshot.paramMap.get('token');
     console.log('Password: ', this.passwordUpdateForm.value);
     console.log('Token: ', this.token);
-    this.userService.passwordUpdate(this.passwordUpdateForm, this.token).subscribe((response: any) =>
-    {
-      console.log('Response: ', response);
-      console.log('Status code: ', response.statusCode);
-      if(response.statusCode === 200) {
-        this.router.navigate(['/login']);
-        return this.matSnackbar.open('Password updated sucessfully', 'Ok', { duration: 4000 });
-      }
-      this.matSnackbar.open('Error', 'Ok', { duration: 4000 });
+    this.userService.passwordUpdate(this.passwordUpdateForm.value, this.token).subscribe((response: any) => {
+      console.log("fetching response : ", response);
+      this.router.navigate(['/login']);
+      return this.matSnackbar.open('Password updated sucessfully', 'Ok', { duration: 4000 });
     },
-    error => {
-      console.log(error);
-      this.router.navigate(['/password-update/:token']);
-      this.matSnackbar.open('Password not updated', 'Ok', { duration: 4000 });
-    });
+      errors => {
+        console.log(errors);
+        this.router.navigate(['/password-update/:token']);
+        this.matSnackbar.open('Password not updated', 'Ok', { duration: 4000 });
+      })
   }
 }

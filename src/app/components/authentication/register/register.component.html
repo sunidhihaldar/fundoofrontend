@@ -18,6 +18,9 @@
               <mat-error *ngIf="registerForm.get('firstName').hasError('required')">
                 Firstname is required
               </mat-error>
+              <mat-error *ngIf="registerForm.get('firstName').hasError('pattern')">
+                Enter only alphabets, with a minimum of 3 characters
+              </mat-error>
             </mat-form-field>
           </div>&nbsp;&nbsp;&nbsp;
   
@@ -27,6 +30,9 @@
             <input matInput formControlName="lastName">
             <mat-error *ngIf="registerForm.get('lastName').hasError('required')">
               Lastname is required
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('lastName').hasError('pattern')">
+              Enter only alphabets, with a minimum of 3 characters
             </mat-error>
             </mat-form-field>
           </div>
