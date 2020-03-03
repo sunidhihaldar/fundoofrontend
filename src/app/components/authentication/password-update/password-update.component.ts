@@ -26,9 +26,7 @@ export class PasswordUpdateComponent implements OnInit {
     });
     this.passwordUpdateForm = this.formBuilder.group({
       newPassword: ['', [Validators.required, Validators.minLength(4)]],
-      confirmPassword: ['', [Validators.required]]
-      //new FormControl('', [Validators.required, Validators.minLength(4)]),
-      //new FormControl('', [Validators.required])
+      confirmPassword: ['', [Validators.required, Validators.minLength(4)]]
     },
       {
         validator: PasswordValidator('newPassword', 'confirmPassword')

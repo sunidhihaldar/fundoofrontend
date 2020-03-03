@@ -1,12 +1,8 @@
 <div class="login">
     <mat-card fxLayout="column" fxLayoutAlign="space-around center">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <mat-card-title>
-                <div>
-                    <span class="mat-headline">Fundoo</span><br>
-                    <span>Sign In</span>
-                </div>
-            </mat-card-title>
+            <mat-card-title>Fundoo</mat-card-title>
+            <mat-card-title>Sign In</mat-card-title>
             <mat-card-content>
                 <div>
                     <mat-form-field appearance="outline">
@@ -22,12 +18,15 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput formControlName="password" 
-                            [type]="hide ? 'password' : 'text'">
+                            [type]="hide ? 'text' : 'password'">
                         <mat-icon matSuffix (click)="hide = !hide">
                             {{hide ? 'visibility' : 'visibility_off'}}
                         </mat-icon>
                         <mat-error *ngIf="loginForm.get('password').hasError('required')">
                             Password required
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+                            Password field should have a minimum of 4 characters
                         </mat-error>
                     </mat-form-field>
                 </div>

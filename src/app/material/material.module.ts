@@ -28,7 +28,7 @@ const materialComponents = [
   MatInputModule,
   MatCardModule,
   FlexLayoutModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 ];
 
 @NgModule({
