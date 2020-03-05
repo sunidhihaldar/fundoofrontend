@@ -17,6 +17,7 @@ export class UserService {
     headers : new HttpHeaders({ 'Content-Type' : 'application/json'})
   };
   emailurl='';
+  
   public registration(user : RegisterUser) {
     console.log('In registration service');
     return this.httpService.post(`${environment.userApiUrl + environment.registerUrl}`, user, this.httpOptions);

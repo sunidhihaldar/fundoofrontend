@@ -14,8 +14,7 @@ import { ForgotPasswordComponent } from './components/authentication/forgot-pass
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { UserActivateComponent } from './components/authentication/user-activate/user-activate.component';
 import { PasswordUpdateComponent } from './components/authentication/password-update/password-update.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.component';
+import { NoteComponent } from './components/note/note.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { SidenavbarComponent } from './components/sidenavbar/sidenavbar.componen
     PageNotFoundComponent,
     UserActivateComponent,
     PasswordUpdateComponent,
-    ToolbarComponent,
-    SidenavbarComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,

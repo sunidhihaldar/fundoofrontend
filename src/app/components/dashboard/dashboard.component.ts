@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  opened = false;
+  show: boolean = true;
   
   constructor() { }
 
   ngOnInit() {
   }
 
+  changeView(show: boolean) {
+    this.show = !show;
+    console.log(this.show);
+  }
 }

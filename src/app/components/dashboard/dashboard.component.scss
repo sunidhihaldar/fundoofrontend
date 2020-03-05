@@ -1,0 +1,186 @@
+.title {
+    margin-left: 10px;
+    font-size: 25px;
+    color: gray
+}
+
+// .app-bar{
+//     background-color: aliceblue;
+// }
+
+.example-container {
+    width: flex;
+    height: 600px;
+}
+  
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.example-sidenav {
+    padding: 20px;
+}
+
+.sideNav-sidenav {
+    outline: none;
+    border: none;
+    width: 300px;
+}
+
+    // .search {
+    //     width: 500px;
+    //     height:5px;
+    //     position: relative;
+    // }
+
+// .search-div {
+//     position: absolute;
+//     display: flex;
+//     flex-direction: row;
+//     width: 52vw;
+//     height: 15px;
+//     left: 10%;
+//     top: 2%;
+// }
+
+// .search-bar {
+//     height: 46px;
+//     padding: 0;
+//     margin-left: 56px;
+//     margin-right: 49px;
+//     overflow: hidden;
+// }
+  
+.form-control {
+    // position: absolute;
+    outline: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 43vw;
+    height: 15px;
+    left: 22%;
+    top: 2%;
+}
+
+.clear-button{
+    outline: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 43vw;
+    height: 10px;
+    left: 53%;
+    top: 2%;
+}
+
+.div-search {
+    display: flex;
+    border-radius: 8px;
+    width: 550px;
+    height: 48px;
+    border: 0px;
+    font-size: 15px;
+    width: 780px;
+    margin-left: 60px;
+}
+
+.button {
+  align-self: center;
+   padding: 5px;
+   background: none;
+   margin:none;
+}
+
+// .searchButton {
+//     align-self: center;
+// }
+
+.resizedTextbox{
+    border-radius: 8px;
+    width: 750px;
+    height: 20px;
+    border: 0px;
+    font-size: 15px;
+    outline: 0ch;
+}
+
+// .mat-icon {
+//    vertical-align: middle;
+// }
+ 
+.firstButton {
+  border-radius: 25px;
+  margin-left: 0px;
+}
+
+.noteIcon,.reminderIcon {
+   float: left;
+  margin-top: 4px;
+  padding-right: 0px;
+  margin-left: none;
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+.note-label,.reminder-label {
+   float: left;
+   padding-left:30px;
+   font-size: .875rem;
+   font-weight: 500;
+}
+ 
+.secondButton{
+  border-radius: 25px;
+  margin-left: 0px;
+}
+
+.remindersButton{
+     border-top-right-radius: 30px;
+     border-bottom-right-radius: 30px;
+     width: 300px;
+     height: 55px;
+ }
+
+.notesButton,.archiveButton {
+    margin-top: 8px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 300px;
+    height: 55px;
+}
+
+.notesButton:focus{
+background-color: rgba(255, 196, 0, 0.267);
+}
+
+.remindersButton:focus{
+  background-color:  rgba(255, 196, 0, 0.267);;
+}
+
+.label{
+  height: 0.5px;
+  width: 1px;
+}
+
+.labelsClass {
+    color: #5f6368;
+    letter-spacing: .07272727em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .6875rem;
+    font-weight: 500;
+    padding: 15px 24px 10px;
+}
+
+div.labelsClass {
+  font-size: 12px;
+}
+
+.labelsButton{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
