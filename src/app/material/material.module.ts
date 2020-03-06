@@ -14,7 +14,8 @@ import {
   MatCardModule,
   MatSnackBarModule,
   MatDividerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatListModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -32,7 +33,8 @@ const materialComponents = [
   FlexLayoutModule,
   MatSnackBarModule,
   MatDividerModule,
-  MatDialogModule
+  MatDialogModule,
+  MatListModule
 ];
 
 @NgModule({

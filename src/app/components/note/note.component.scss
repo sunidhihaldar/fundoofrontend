@@ -1,5 +1,13 @@
-.matcard{
-    margin-top: -22px;
+.matcard {
+    font-size: 20px;
+    font-weight: 400;
+    color: gray;
+}
+
+.note {
+    width: 1650px;
+    height: 8px;
+    margin-top: 1%;
 }
 
 .noteEditCard {
@@ -8,4 +16,77 @@
     border-radius: 8px;
     margin-top: 30px;
     margin-left: 30px;
+}
+
+.noteFields {
+    margin-top: 20px;
+    width: 580px;
+    height: auto;
+    margin-left: 50px;
+}
+
+.tittleField {
+    margin-top: none;
+    border: none;
+    outline: none;
+    margin-top: 8px;
+    width: 400px;
+    height: auto;
+    padding-right: 70px;
+    height: 25px;
+    font-size: 17px;
+    color: #202124;
+}
+
+.textField {
+    margin-top: none;
+    border: none;
+    outline: none;
+    margin-top:0px;
+    width: 350px;
+    //height: auto;
+    height: 25px;
+    padding-left: 18px;
+    padding-right: 0px;
+    font-size: 14px;
+    color: #202124;
+}
+
+.pinIcon {
+    margin-top: none;
+    padding-left: 10px;
+    float: right;
+}
+
+.matcardHeader {
+    margin-bottom: 10px;
+}
+
+.submit {
+    margin-left: 150px;
+    float: right;
+}
+
+.remIcon {
+    width: 2px;
+    height: 2px;
+    margin-top: 2px;
+    float: left;
+}
+
+.bottomButtons {
+    float: left;
+    margin-bottom: 0%
+}
+
+// .notification {
+//     margin-top: 4px;
+// }
+
+// .fullBody {
+//     height: 0%;
+// }
+
+.popup {
+    margin-top: 80px;
 }

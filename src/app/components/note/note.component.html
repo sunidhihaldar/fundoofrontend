@@ -1,1 +1,80 @@
-<p>note works!</p>
+ <form [formGroup]="noteForm">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <div (click)=expandIt() *ngIf="!expand">
+                <mat-card (click)="expandNote()" class="noteEditCard">
+                    <mat-card-content class="matcard">
+                        <span>Take a note...</span>
+                        <button mat-icon-button style="margin-left: 400px">
+                        </button>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div *ngIf="expand">
+            <div fxLayout="row" fxLayoutAlign="center center">
+    
+                <mat-card class="noteFields">
+                        <mat-card-header class="Header">
+                            <mat-card-title>
+    
+                                <textarea style="color: #202124;"
+                                    class="tittleField" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                    cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="Title..." formControlName="title"></textarea>
+                            </mat-card-title>
+                        </mat-card-header>
+    
+                        <mat-card-content class="matcardHeader">
+                            <textarea style="width: 95%;"
+                                class="textField" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="15" placeholder="Take a note..." formControlName="description"></textarea>
+                        </mat-card-content>
+
+                        <div>
+                            <div class="bottomButtons" style="opacity: .79;">
+                                <button mat-icon-button class="notification" matTooltip="Remind me">
+                                    <mat-icon>notifications_paused</mat-icon>
+                                </button>
+
+                                <button mat-icon-button class="notification" matTooltip="Collaborator">
+                                    <mat-icon>person_add</mat-icon>
+                                </button>
+
+                                <button mat-icon-button class="notification" matTooltip="Change color">
+                                    <mat-icon>color_lens</mat-icon>
+                                </button>
+
+                                <button mat-icon-button class="notification" matTooltip="Add image">
+                                    <mat-icon>photo_library</mat-icon>
+                                </button>
+                                
+                                <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive">
+                                    <i class="material-icons">archive</i>
+                                </button>
+
+                                <button margin="14px" mat-icon-button fxHide.xs="true" [matMenuTriggerFor]="menu"
+                                    matTooltip="More">
+                                    <i class="material-icons">more_vert</i>
+                                </button>
+                                <mat-menu #menu="matMenu" class="menuclass">
+                                    <mat-list-item><button mat-button>Add label</button></mat-list-item>
+                                    <mat-list-item><button mat-button>Show checkboxes</button></mat-list-item>
+                                </mat-menu>
+
+                                <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Undo">
+                                    <i class="material-icons">undo</i>
+                                </button>
+
+                                <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Redo">
+                                    <i class="material-icons">redo</i>
+                                </button>
+
+                                <div class="submit" (click)="ngOnclose()">
+                                    <button mat-button>Close</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+        </div>
+</form>
