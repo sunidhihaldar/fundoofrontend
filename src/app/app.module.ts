@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { UserActivateComponent } from './components/authentication/user-activate/user-activate.component';
 import { PasswordUpdateComponent } from './components/authentication/password-update/password-update.component';
 import { NoteComponent } from './components/note/note.component';
+import { DisplayNoteComponent } from './components/display-note/display-note.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NoteComponent } from './components/note/note.component';
     PageNotFoundComponent,
     UserActivateComponent,
     PasswordUpdateComponent,
-    NoteComponent
+    NoteComponent,
+    DisplayNoteComponent
   ],
   imports: [
     BrowserModule,

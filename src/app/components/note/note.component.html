@@ -1,22 +1,25 @@
- <form [formGroup]="noteForm">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-            <div (click)=expandIt() *ngIf="!expand">
-                <mat-card (click)="expandNote()" class="noteEditCard">
-                    <mat-card-content class="matcard">
-                        <span>Take a note...</span>
-                        <button mat-icon-button style="margin-left: 400px">
-                        </button>
-                    </mat-card-content>
-                </mat-card>
-            </div>
+<div class="close-note-container" *ngIf="!expand">
+    <mat-card class="border">
+         <input placeholder="Take a note..." (click)="expandNote()" class="input-tag">
+         <div style="padding:0px 0px;">
+             <button mat-icon-button matTooltip="New list" class="nav-button">
+                <mat-icon style="padding-bottom: 103%;" class="mat-icon">check_box</mat-icon>
+             </button>
+         </div>
+        <div>
+            <button mat-icon-button matTooltip="New note with image" class="nav-button">
+               <mat-icon style="padding-bottom: 103%;" class="mat-icon">image</mat-icon>
+            </button>
         </div>
+    </mat-card>
+</div>
+ 
+ <form [formGroup]="noteForm">
         <div *ngIf="expand">
             <div fxLayout="row" fxLayoutAlign="center center">
-    
                 <mat-card class="noteFields">
                         <mat-card-header class="Header">
                             <mat-card-title>
-    
                                 <textarea style="color: #202124;"
                                     class="tittleField" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                                     cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="Title..." formControlName="title"></textarea>
@@ -78,3 +81,6 @@
                 </div>
         </div>
 </form>
+<div  class="popup" fxLayout="column" fxLayoutAlign="space-between center" >
+    <app-display-note></app-display-note>
+</div>

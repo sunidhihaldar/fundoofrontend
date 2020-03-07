@@ -12,7 +12,8 @@ export const environment = {
   updatePasswordUrl: 'updatePassword',
 
   noteApiUrl: 'http://localhost:8083/note',
-  createNote: '/create'
+  createNoteUrl: '/create',
+  getAllNotesUrl: '/getAllNotes'
 };
 
 /*

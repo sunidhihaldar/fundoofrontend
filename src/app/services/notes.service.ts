@@ -16,6 +16,14 @@ export class NotesService {
 
   public createNote(note: any) {
     console.log('entered into create note in service');
-    return this.httpService.post(`${environment.noteApiUrl + environment.createNote}`, note, this.httpOptions);
+    return this.httpService.post(`${environment.noteApiUrl + environment.createNoteUrl}`, note, this.httpOptions);
+  }
+
+  public updateNote(note: any) {
+    return this.httpService.put(`${environment.noteApiUrl}`, note, this.httpOptions);
+  }
+
+  public getAllNotes() {
+    return this.httpService.get(`${environment.noteApiUrl + environment.getAllNotesUrl}`, this.httpOptions);
   }
 }

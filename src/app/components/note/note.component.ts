@@ -14,10 +14,8 @@ export class NoteComponent implements OnInit {
   noteForm: FormGroup;
   private expand: boolean = false;
 
-  constructor(private noteService: NotesService,
-              private router: Router, 
-              private snackBar: MatSnackBar,
-              private notesService: NotesService) { }
+  constructor(private noteService: NotesService,    
+              private snackBar: MatSnackBar) { }
     
   ngOnInit() {
     this.noteForm = new FormGroup({
@@ -41,6 +39,8 @@ export class NoteComponent implements OnInit {
         console.log('Response ', response);
         console.log(response.message);
         console.log(response.note);
+        this.expand =!this.expand;
+        this.noteForm.reset();
         this.snackBar.open("Succesfully added note", "ok", { duration: 5000 })
     },
       error => {
