@@ -16,6 +16,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
+
   changeView(show: boolean) {
     this.show = !show;
     console.log(this.show);

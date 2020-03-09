@@ -1,8 +1,8 @@
-<div fxLayout="row" fxLayoutAlign="center center">
+<div >
     <div>
         <div *ngFor="let note of listNotes;let notetempid = index" class="noteCard">
 
-            <mat-card class="matcard" style="margin-left:90px" autocomplete="off" role="combobox" flex="column">
+            <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
                 <div (click)="openPopup(note)">
                     <mat-card-title class="content">
                         <textarea class="textArea" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
@@ -15,22 +15,30 @@
                             disabled>{{note.description}}</textarea>
                     </mat-card-content>
                 </div>
-                 <div ng-mouseover="expand=true" ng-init="expand=false"> 
+                 <div ng-init="expand = true" ng-mouseover="expand = false"> 
                      <div *ngIf="expand"> 
                       <div class="matCardFooter">
-                        <mat-card-footer>
+                        <mat-card-footer style="opacity: .77;">
                             <button mat-icon-button>
                                 <mat-icon>add_alert</mat-icon>
                             </button>
-                            <button mat-icon-button>
-                                <mat-icon>insert_photo</mat-icon>
-                            </button>
-                            <button mat-icon-button (click)="archivenote(note)">
-                                <mat-icon>archive</mat-icon>
-                            </button>
+
                             <button mat-icon-button>
                                 <mat-icon>person_add</mat-icon>
                             </button>
+
+                            <button mat-icon-button matTooltip="Add image">
+                                <mat-icon>photo_library</mat-icon>
+                            </button>
+
+                            <button mat-icon-button>
+                                <mat-icon>insert_photo</mat-icon>
+                            </button>
+
+                            <button mat-icon-button (click)="archivenote(note)">
+                                <mat-icon>archive</mat-icon>
+                            </button>
+
                             <button mat-icon-button [matMenuTriggerFor]="menu">
                                 <mat-icon>more_vert</mat-icon>
                             </button>
