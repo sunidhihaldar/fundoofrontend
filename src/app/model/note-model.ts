@@ -5,4 +5,8 @@ export class NoteModel {
     isPinned: boolean;
     isArchived: boolean;
     isTrashed: boolean;
+    colour: string;
+    createdAt: string;
+    updatedAt: string;
+    reminder: string;
 }

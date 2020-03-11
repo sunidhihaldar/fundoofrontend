@@ -4,7 +4,8 @@
 
             <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
                 <div (click)="openPopup(note)">
-                    <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" style="margin-left: 230px;"></a>
+                    <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned" style="margin-left: 230px;"></a>
+                    <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned" style="margin-left: 230px;"></a>
                     <mat-card-title class="content">
                         <textarea class="textArea" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                             cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100" placeholder="Title"

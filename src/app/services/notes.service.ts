@@ -23,7 +23,7 @@ export class NotesService {
   }
 
   public createNote(note: any, token: any) {
-    console.log('entered into create note in service');
+    console.log('entered into update note in service');
     console.log('Token ', token);
     return this.httpService.post(`${environment.noteApiUrl + environment.createNoteUrl}`, note, { headers: new HttpHeaders().
          set('token',  localStorage.token)}). pipe(tap(() => {
@@ -32,7 +32,10 @@ export class NotesService {
   }
 
   public updateNote(note: any) {
-    return this.httpService.put(`${environment.noteApiUrl}`, note, this.httpOptions);
+    return this.httpService.put(`${environment.noteApiUrl}`, note, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}). pipe(tap(() => {
+          this._autoRefresh$.next();
+      }));
   }
 
   public getAllNotes() {

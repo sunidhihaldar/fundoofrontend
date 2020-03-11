@@ -9,6 +9,7 @@ import { UserActivateComponent } from './components/authentication/user-activate
 import { PasswordUpdateComponent } from './components/authentication/password-update/password-update.component';
 import { NoteComponent } from './components/note/note.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { DisplayNoteComponent } from './components/display-note/display-note.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'password-update/:token', component: PasswordUpdateComponent},
   {path:'dashboard', component: DashboardComponent, children: [
     {path:'note', component: NoteComponent, children: [
-      { path:'', component: CreateNoteComponent}
+      { path:'', component: CreateNoteComponent},
+      { path:'', component: DisplayNoteComponent}
     ]}
   ]},
   {path:'**', component: PageNotFoundComponent}
