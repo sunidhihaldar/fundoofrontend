@@ -17,6 +17,7 @@ import { PasswordUpdateComponent } from './components/authentication/password-up
 import { NoteComponent } from './components/note/note.component';
 import { DisplayNoteComponent } from './components/display-note/display-note.component';
 import { NoteIconlistComponent } from './components/note-iconlist/note-iconlist.component';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NoteIconlistComponent } from './components/note-iconlist/note-iconlist.
     PasswordUpdateComponent,
     NoteComponent,
     DisplayNoteComponent,
-    NoteIconlistComponent
+    NoteIconlistComponent,
+    CreateNoteComponent
   ],
   imports: [
     BrowserModule,
