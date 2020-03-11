@@ -23,7 +23,7 @@
     margin-top: none;
     border: none;
     outline: none;
-    margin-top: 8px;
+    //margin-top: 8px;
     width: 400px;
     height: auto;
     padding-right: 70px;
@@ -36,9 +36,9 @@
     margin-top: none;
     border: none;
     outline: none;
-    margin-top:0px;
     width: 350px;
     height: 25px;
+    max-height: 775px;
     padding-left: 18px;
     padding-right: 0px;
     font-size: 14px;
@@ -83,7 +83,7 @@
 .border {
     background-color: white;
     border-radius: 8px;
-    height: 20px;
+    height: 17px;
     width: 600px;
     display: flex;
     -webkit-box-pack: justify;

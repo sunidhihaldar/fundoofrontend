@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpHandlerService } from './http-handler.service';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
+
+  private _autoRefresh$ = new Subject();
 
   constructor(private httpService: HttpHandlerService) { }
 
@@ -14,9 +18,17 @@ export class NotesService {
     headers : new HttpHeaders({ 'Content-Type' : 'application/json', token: localStorage.getItem('token')})
   };
 
-  public createNote(note: any) {
+  get autoRefresh$() {
+    return this._autoRefresh$;
+  }
+
+  public createNote(note: any, token: any) {
     console.log('entered into create note in service');
-    return this.httpService.post(`${environment.noteApiUrl + environment.createNoteUrl}`, note, this.httpOptions);
+    console.log('Token ', token);
+    return this.httpService.post(`${environment.noteApiUrl + environment.createNoteUrl}`, note, { headers: new HttpHeaders().
+         set('token',  localStorage.token)}). pipe(tap(() => {
+             this._autoRefresh$.next();
+         }));
   }
 
   public updateNote(note: any) {

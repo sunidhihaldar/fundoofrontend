@@ -17,7 +17,11 @@ export class DisplayNoteComponent implements OnInit {
 
   constructor(private noteService: NotesService,
               private router: Router,
-              private matSnackbar: MatSnackBar) { }
+              private matSnackbar: MatSnackBar) { 
+                this.noteService.autoRefresh$.subscribe(() => {
+                  this.getAllNotes();
+                });
+              }
 
   ngOnInit() {
     this.getAllNotes();

@@ -13,9 +13,10 @@ export class NoteComponent implements OnInit {
 
   noteForm: FormGroup;
   private expand: boolean = false;
+  token: string = localStorage.getItem('token');
 
   constructor(private noteService: NotesService,    
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar) {}
     
   ngOnInit() {
     this.noteForm = new FormGroup({
@@ -35,7 +36,7 @@ export class NoteComponent implements OnInit {
       return console.log('Value ',this.noteForm.value);
     }
     if(this.noteForm.value.title !== '' &&  this.noteForm.value.description !== '') {
-      this.noteService.createNote(this.noteForm.value).subscribe((response: any) => {
+      this.noteService.createNote(this.noteForm.value, this.token).subscribe((response: any) => {
         console.log('Response ', response);
         console.log(response.message);
         console.log(response.note);

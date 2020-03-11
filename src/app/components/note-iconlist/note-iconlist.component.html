@@ -1,0 +1,28 @@
+<button mat-icon-button class="notification" matTooltip="Remind me">
+    <mat-icon>add_alert</mat-icon>
+</button>
+<!-- notifications_paused -->
+<button mat-icon-button class="notification" matTooltip="Collaborator">
+    <mat-icon>person_add</mat-icon>
+</button>
+
+<button mat-icon-button class="notification" matTooltip="Change color">
+    <mat-icon>color_lens</mat-icon>
+</button>
+
+<button mat-icon-button class="notification" matTooltip="Add image" style="margin-top: 5px;">
+    <a><img src="assets/icons/addImage.svg"></a>
+</button>
+
+<button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive">
+    <i class="material-icons">archive</i>
+</button>
+
+<button margin="14px" mat-icon-button fxHide.xs="true" [matMenuTriggerFor]="menu"
+    matTooltip="More">
+    <i class="material-icons">more_vert</i>
+</button>
+<mat-menu #menu="matMenu" class="menuclass">
+    <mat-list-item><button mat-button>Add label</button></mat-list-item>
+    <mat-list-item><button mat-button>Show checkboxes</button></mat-list-item>
+</mat-menu>

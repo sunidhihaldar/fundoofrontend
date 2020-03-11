@@ -1,9 +1,10 @@
-<div >
+<div fxLayout="row" fxLayoutAlign="center center">
     <div>
         <div *ngFor="let note of listNotes;let notetempid = index" class="noteCard">
 
             <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
                 <div (click)="openPopup(note)">
+                    <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" style="margin-left: 230px;"></a>
                     <mat-card-title class="content">
                         <textarea class="textArea" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                             cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100" placeholder="Title"
@@ -19,33 +20,7 @@
                      <div *ngIf="expand"> 
                       <div class="matCardFooter">
                         <mat-card-footer style="opacity: .77;">
-                            <button mat-icon-button>
-                                <mat-icon>add_alert</mat-icon>
-                            </button>
-
-                            <button mat-icon-button>
-                                <mat-icon>person_add</mat-icon>
-                            </button>
-
-                            <button mat-icon-button matTooltip="Add image">
-                                <mat-icon>photo_library</mat-icon>
-                            </button>
-
-                            <button mat-icon-button>
-                                <mat-icon>insert_photo</mat-icon>
-                            </button>
-
-                            <button mat-icon-button (click)="archivenote(note)">
-                                <mat-icon>archive</mat-icon>
-                            </button>
-
-                            <button mat-icon-button [matMenuTriggerFor]="menu">
-                                <mat-icon>more_vert</mat-icon>
-                            </button>
-                            <mat-menu #menu="matMenu">
-                                <button  mat-menu-item (click)="deletenote(note)">Delete Note</button>
-                                <button mat-menu-item>Add label</button>
-                            </mat-menu>
+                            <app-note-iconlist></app-note-iconlist>
                         </mat-card-footer>
                     </div>
                   </div>
