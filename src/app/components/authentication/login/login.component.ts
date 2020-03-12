@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
        console.log("RESPONSE :",response);
         if(response.statusCode === 200) {
         localStorage.setItem('token', response.object);
+        localStorage.setItem('firstName', response.firstName);
+        console.log('Name: ', response.firstName);
         console.log('Token: ' , response.object);
         console.log(response.message);
         this.matSnackbar.open(response.message, "Ok", { duration: 4000 });

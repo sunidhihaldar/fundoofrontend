@@ -1,7 +1,7 @@
 <mat-card>
     <div>
         <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned"></a>
-                                    <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"></a>
+        <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"></a>
     </div>
     <textarea id="title" [(ngModel)]="note.title" type="text" matInput></textarea>
     <textarea id="description" [(ngModel)]="note.description" type="text" matInput></textarea>

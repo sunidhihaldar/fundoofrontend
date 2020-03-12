@@ -26,14 +26,14 @@ export class NotesService {
     console.log('entered into update note in service');
     console.log('Token ', token);
     return this.httpService.post(`${environment.noteApiUrl + environment.createNoteUrl}`, note, { headers: new HttpHeaders().
-         set('token',  localStorage.token)}). pipe(tap(() => {
+         set('token',  localStorage.token)}).pipe(tap(() => {
              this._autoRefresh$.next();
          }));
   }
 
   public updateNote(note: any) {
-    return this.httpService.put(`${environment.noteApiUrl}`, note, { headers: new HttpHeaders().
-      set('token',  localStorage.token)}). pipe(tap(() => {
+    return this.httpService.put(`${environment.noteApiUrl + environment.updateNote}`, note, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}).pipe(tap(() => {
           this._autoRefresh$.next();
       }));
   }
@@ -44,7 +44,12 @@ export class NotesService {
 
   public pinNote(note: any) {
     console.log('Note pin');
-    return this.httpService.put(`${environment.noteApiUrl}`, note, this.httpOptions);
+    const params = new URLSearchParams();
+    console.log('noteId: ', note);
+    // params.set('noteId', note);
+    return this.httpService.post(`${environment.noteApiUrl + environment.pinNote}/${note}`, {}, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+      this.autoRefresh$.next();
+    }));
   }
 
   public archiveNote(note: any) {
@@ -54,7 +59,9 @@ export class NotesService {
 
   public setReminder(note: any) {
     console.log('Reminder set');
-    return this.httpService.put(`${environment.noteApiUrl}`, note, this.httpOptions);
+    return this.httpService.put(`${environment.noteApiUrl + environment.setReminder}/${note}`, note, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+      this.autoRefresh$.next();
+    }));
   }
 
   public restoreNote(note: any) {

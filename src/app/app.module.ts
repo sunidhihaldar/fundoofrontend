@@ -19,6 +19,8 @@ import { DisplayNoteComponent } from './components/display-note/display-note.com
 import { NoteIconlistComponent } from './components/note-iconlist/note-iconlist.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { UpdateNoteComponent } from './components/update-note/update-note.component';
+import { PinNoteComponent } from './components/pin-note/pin-note.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UpdateNoteComponent } from './components/update-note/update-note.compon
     DisplayNoteComponent,
     NoteIconlistComponent,
     CreateNoteComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    PinNoteComponent,
+    ReminderComponent
   ],
   imports: [
     BrowserModule,

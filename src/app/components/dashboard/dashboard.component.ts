@@ -10,6 +10,7 @@ export class DashboardComponent implements OnInit {
 
   show: boolean = true;
   name = localStorage.firstName;
+  pic = 'assets/icons/index.png';
   
   constructor(private router: Router) { }
 
@@ -29,5 +30,13 @@ export class DashboardComponent implements OnInit {
     console.log('Logged out', name);
     localStorage.clear();
     this.router.navigate(['login']);
+  }
+
+  navigateToNotes() {
+    this.router.navigate(['dashboard/note']);
+  }
+
+  navigateToReminder() {
+    this.router.navigate(['dashboard/reminder']);
   }
 }

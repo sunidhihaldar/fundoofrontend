@@ -1,8 +1,8 @@
 <body>
-    <form>
-      <div>
+  <form fxLayout="column" fxLayoutAlign="space-between stretch">
+      <div fxLayout="column">
         <div class="app-bar">
-          <mat-toolbar>
+          <mat-toolbar fxLayout="row">
             <button type="button" class="button" mat-button (click)="sidenav.toggle()">
               <mat-icon matSuffix>menu</mat-icon>
             </button>
@@ -42,14 +42,22 @@
           
             <div class="div-signout">
                 <button mat-icon-button [matMenuTriggerFor]="menu">
-                  <img>
+                  <img mat-card-avatar src="{{pic}}" class="profile1" />
                 </button>
                 <mat-menu #menu="matMenu">
                     <div
                         fxLayout="row" fxFlex="100"
                         fxLayoutAlign="space-between center" style="width: 250px;height: 200px;">
-                        <mat-card style="overflow: hidden;padding-top: 50%;width: 250px;height: 80px;">
-                          <button [routerLink]="['']" (click)="logout()" mat-button class="signout-button" style="margin-top: 50px;">
+                        <mat-card style="overflow: hidden;padding-top: 50%;width: 250px;height: 80px;border-color: transparent;">
+                          <div style="font-size: 30px;text-align: center;">
+                            <img mat-card-avatar src="{{pic}}" style="margin-bottom: -70px;">
+                            <label>
+                              <input type="file" name="fileUpload">
+                              <button>Change photo</button>
+                            </label>
+                            <span>{{name}}</span>
+                          </div>
+                          <button [routerLink]="['']" (click)="logout()" mat-button class="signout-button" style="margin-top: 20px;">
                             Sign out
                           </button>
                         </mat-card>
@@ -64,14 +72,14 @@
         <mat-sidenav-container class="example-container" autosize>
             <mat-sidenav class="sideNav-sidenav" #sidenav mode="side" opened>
                 <div class="firstButton">
-                    <button class="notesButton" mat-button>
+                    <button class="notesButton" mat-button (click)="navigateToNotes()">
                       <mat-icon class="noteIcon">lightbulb_outline</mat-icon>
                       <span class="note-label">Notes</span>
                     </button>
                 </div>
 
                 <div class="secondButton">
-                    <button class="remindersButton" mat-button>
+                    <button class="remindersButton" mat-button (click)="navigateToReminder()">
                       <mat-icon class="reminderIcon">add_alert</mat-icon>
                       <span class="reminder-label">Reminders</span>
                     </button>
@@ -115,5 +123,5 @@
            <router-outlet></router-outlet>
         </mat-sidenav-container>
       </div>
-    </form>
+  </form>
 </body>

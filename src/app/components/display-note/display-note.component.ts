@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { error } from 'protractor';
+import { NoteModel } from 'src/app/model/note-model';
 
 @Component({
   selector: 'app-display-note',
@@ -10,10 +12,16 @@ import { Router } from '@angular/router';
 })
 export class DisplayNoteComponent implements OnInit {
 
+  note: NoteModel = new NoteModel();
   isArchived: boolean;
   isTrashed: boolean;
   listNotes = [];
   expand: boolean = true;
+  token = localStorage.getItem('token');
+
+  pinNotes = [];
+  pin: boolean = true;
+  unpin: boolean = true;
 
   constructor(private noteService: NotesService,
               private router: Router,
@@ -34,6 +42,28 @@ export class DisplayNoteComponent implements OnInit {
       this.listNotes = response.object;
       console.log(response.object);
     });
+  }
+
+  pinNote(noteId) {
+    console.log('pin note called');
+    this.noteService.pinNote(noteId).subscribe(response => {
+      if(!this.pin) {
+        this.matSnackbar.open('Note pinned', 'Ok', { duration: 4000 });
+        this.pin = true;
+      }
+      if(!this.unpin) {
+        this.matSnackbar.open('Note unpinned', 'Ok', { duration: 4000});
+        this.unpin = true;
+      }
+    },
+    error => {
+      console.log(error);
+      this.matSnackbar.open('Error....', 'Ok', { duration: 4000});
+    });
+  }
+  
+  onClickNoteId(id) {
+    this.noteService.pinNote(id);
   }
 
 }
