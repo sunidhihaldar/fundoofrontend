@@ -70,7 +70,7 @@ export class NotesService {
 
   public getAllArchivedNotes() {
     console.log('Get all archived notes');
-    return this.httpService.get(`${environment.noteApiUrl}`, this.httpOptions);
+    return this.httpService.get(`${environment.noteApiUrl + environment.getAllArchivedNotesUrl}`, this.httpOptions);
   }
 
   public getAllTrashedNotes() {

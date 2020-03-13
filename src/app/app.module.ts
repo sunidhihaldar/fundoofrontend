@@ -21,6 +21,7 @@ import { CreateNoteComponent } from './components/create-note/create-note.compon
 import { UpdateNoteComponent } from './components/update-note/update-note.component';
 import { PinNoteComponent } from './components/pin-note/pin-note.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ReminderComponent } from './components/reminder/reminder.component';
     CreateNoteComponent,
     UpdateNoteComponent,
     PinNoteComponent,
-    ReminderComponent
+    ReminderComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,

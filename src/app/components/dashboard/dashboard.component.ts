@@ -41,4 +41,8 @@ export class DashboardComponent implements OnInit {
   navigateToReminder() {
     this.router.navigate(['dashboard/reminder']);
   }
+
+  navigateToArchive() {
+    this.router.navigate(['dashboard/archive']);
+  }
 }

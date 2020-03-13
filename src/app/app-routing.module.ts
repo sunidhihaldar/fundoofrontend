@@ -11,6 +11,7 @@ import { NoteComponent } from './components/note/note.component';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { DisplayNoteComponent } from './components/display-note/display-note.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -21,8 +22,9 @@ const routes: Routes = [
   {path:'password-update/:token', component: PasswordUpdateComponent},
   {path:'dashboard', component: DashboardComponent, children: [
     {path:'', redirectTo:"/dashboard/note", pathMatch:'full'},
-     {path:'note', component: NoteComponent},
-    { path:'reminder', component: ReminderComponent}
+    {path:'note', component: NoteComponent},
+    { path:'reminder', component: ReminderComponent},
+    { path:'archive', component: ArchiveComponent}
   ]},
   {path:'**', component: PageNotFoundComponent}
 ];
