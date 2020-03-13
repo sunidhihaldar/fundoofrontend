@@ -37,7 +37,6 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(response.statusCode);
       if(response.statusCode === 200) {
         console.log('Directing to another page')
-        //this.router.navigate(['/password-update/:token']);
         this.matSnackbar.open('Link sent to mail, please verify it', 'ok', { duration: 4000 });
       }
       else {

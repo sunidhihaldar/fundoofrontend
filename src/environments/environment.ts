@@ -16,7 +16,8 @@ export const environment = {
   getAllNotesUrl: '/getAllNotes',
   pinNote: '/pin',
   updateNote: '/updateNote',
-  setReminder: '/setReminder'
+  setReminder: '/setReminder',
+  getAllReminderNotesUrl: '/getAllNotes/reminder'
 };
 
 /*

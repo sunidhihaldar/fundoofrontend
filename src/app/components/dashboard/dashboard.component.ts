@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NoteModel } from 'src/app/model/note-model';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,8 @@ export class DashboardComponent implements OnInit {
   show: boolean = true;
   name = localStorage.firstName;
   pic = 'assets/icons/index.png';
-  
+  reminder:NoteModel;
+
   constructor(private router: Router) { }
 
   ngOnInit() {

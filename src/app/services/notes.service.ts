@@ -80,6 +80,6 @@ export class NotesService {
 
   public getAllReminderNotes() {
     console.log('Get all reminder notes');
-    return this.httpService.get(`${environment.noteApiUrl}`, this.httpOptions);
+    return this.httpService.get(`${environment.noteApiUrl + environment.getAllReminderNotesUrl}`, this.httpOptions);
   }
 }

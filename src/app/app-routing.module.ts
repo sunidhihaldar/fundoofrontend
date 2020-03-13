@@ -21,10 +21,7 @@ const routes: Routes = [
   {path:'password-update/:token', component: PasswordUpdateComponent},
   {path:'dashboard', component: DashboardComponent, children: [
     {path:'', redirectTo:"/dashboard/note", pathMatch:'full'},
-    {path:'note', component: NoteComponent, children: [
-      { path:'', component: CreateNoteComponent},
-      { path:'', component: DisplayNoteComponent}
-    ]},
+     {path:'note', component: NoteComponent},
     { path:'reminder', component: ReminderComponent}
   ]},
   {path:'**', component: PageNotFoundComponent}
