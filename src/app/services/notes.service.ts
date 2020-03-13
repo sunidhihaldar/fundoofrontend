@@ -75,7 +75,7 @@ export class NotesService {
 
   public getAllTrashedNotes() {
     console.log('Trashed notes');
-    return this.httpService.get(`${environment.noteApiUrl}`, this .httpOptions);
+    return this.httpService.get(`${environment.noteApiUrl + environment.getAllTrashNotesUrl}`, this .httpOptions);
   }
 
   public getAllReminderNotes() {

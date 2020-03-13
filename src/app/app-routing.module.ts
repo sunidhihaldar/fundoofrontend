@@ -12,6 +12,7 @@ import { CreateNoteComponent } from './components/create-note/create-note.compon
 import { DisplayNoteComponent } from './components/display-note/display-note.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
     {path:'', redirectTo:"/dashboard/note", pathMatch:'full'},
     {path:'note', component: NoteComponent},
     { path:'reminder', component: ReminderComponent},
-    { path:'archive', component: ArchiveComponent}
+    { path:'archive', component: ArchiveComponent},
+    { path:'trash', component: TrashComponent}
   ]},
   {path:'**', component: PageNotFoundComponent}
 ];

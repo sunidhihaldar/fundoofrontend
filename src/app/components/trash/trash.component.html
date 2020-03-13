@@ -1,0 +1,20 @@
+<div fxLayout="{{view}}" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 7%;margin-right: 7%;">
+    <mat-card *ngFor="let note of trashNotes">
+        <div style="font-size: 19px;">
+            <strong>{{note.title}}</strong>
+        </div>
+
+        <div style="font-size: 20px;margin-top: 10px;">
+            {{note.description}}
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button mat-icon-button matTooltip="Delete forever">
+                <mat-icon>delete_forever</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Restore">
+                <mat-icon>restore_from_trash</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</div>

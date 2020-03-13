@@ -18,7 +18,8 @@ export const environment = {
   updateNote: '/updateNote',
   setReminder: '/setReminder',
   getAllReminderNotesUrl: '/getAllNotes/reminder',
-  getAllArchivedNotesUrl: '/getAllNotes/archived'
+  getAllArchivedNotesUrl: '/getAllNotes/archived',
+  getAllTrashNotesUrl: '/getAllNotes/trashed'
 };
 
 /*

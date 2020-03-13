@@ -45,4 +45,8 @@ export class DashboardComponent implements OnInit {
   navigateToArchive() {
     this.router.navigate(['dashboard/archive']);
   }
+
+  navigateToTrash() {
+    this.router.navigate(['dashboard/trash']);
+  }
 }
