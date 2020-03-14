@@ -4,7 +4,7 @@
 
             <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
                 <app-pin-note [note]="note" (click)="onClickNoteId(note.noteId)"></app-pin-note>
-                <div>
+                <div style="width: 220px;margin-top: -30px;">
                     <mat-card-title placeholder="Title" (click)="openDialog(note)">
                         {{note.title}}
                     </mat-card-title>
@@ -13,10 +13,13 @@
                         {{note.description}}
                     </mat-card-content>
                 </div>
+                <div *ngIf="note.reminder!=null">
+                    {{note.reminder}}
+                </div>
                  <div ng-init="expand = true" ng-mouseover="expand = false"> 
                      <div *ngIf="expand"> 
                       <div class="matCardFooter">
-                        <mat-card-footer style="margin-top: -20px;">
+                        <mat-card-footer style="margin-top: -7px;">
                             <app-note-iconlist [note]="note"></app-note-iconlist>
                         </mat-card-footer>
                     </div>

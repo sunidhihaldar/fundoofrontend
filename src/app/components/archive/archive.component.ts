@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { Router } from '@angular/router';
+import { NoteModel } from 'src/app/model/note-model';
 
 @Component({
   selector: 'app-archive',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ArchiveComponent implements OnInit {
 
+  note: NoteModel;
   archiveNotes = [];
 
   constructor(private noteService: NotesService,

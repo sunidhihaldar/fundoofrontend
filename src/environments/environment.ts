@@ -20,7 +20,8 @@ export const environment = {
   getAllReminderNotesUrl: '/getAllNotes/reminder',
   getAllArchivedNotesUrl: '/getAllNotes/archived',
   getAllTrashNotesUrl: '/getAllNotes/trashed',
-  deleteNoteUrl: '/trash'
+  deleteNoteUrl: '/trash',
+  archiveNoteUrl: '/archive'
 };
 
 /*

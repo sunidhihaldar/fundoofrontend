@@ -1,4 +1,4 @@
-<div fxLayout="{{view}}" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 7%;margin-right: 7%;">
+<div fxLayout="row" fxLayoutAlign="center center" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 7%;margin-right: 7%;">
     <mat-card *ngFor="let note of archiveNotes" style="margin-left: 50px;margin-top: 30px;">
         <div>
             <app-pin-note></app-pin-note>
@@ -10,7 +10,7 @@
         </div>
 
         <div>
-            <app-note-iconlist></app-note-iconlist>
+            <app-note-iconlist [note]="note"></app-note-iconlist>
         </div>
     </mat-card>
 </div>

@@ -53,8 +53,10 @@ export class NotesService {
   }
 
   public archiveNote(note: any) {
-    console.log('Note archived');
-    return this.httpService.put(`${environment.noteApiUrl}`, note, this.httpOptions);
+    console.log('Note archive service');
+    return this.httpService.post(`${environment.noteApiUrl + environment.archiveNoteUrl}/${note}`, note, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+      this.autoRefresh$.next();
+    }));
   }
 
   public setReminder(note: any) {

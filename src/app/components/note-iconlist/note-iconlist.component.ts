@@ -11,7 +11,7 @@ import { NoteModel } from 'src/app/model/note-model';
 export class NoteIconlistComponent implements OnInit {
 
   @Input() note: NoteModel;
-  noteId: number;
+  notes: NoteModel;
 
   constructor(private noteService: NotesService,
               private matSnackbar: MatSnackBar) { }
@@ -20,8 +20,7 @@ export class NoteIconlistComponent implements OnInit {
   }
 
   onClickDelete() {
-    this.noteId = this.note.noteId;
-    console.log('Delete note ', this.noteId);
+    console.log('Delete note ', this.note.noteId);
     this.noteService.deleteNote(this.note.noteId).subscribe((response: any) => {
       console.log('Response: ', response);
       this.matSnackbar.open(response.message, 'Ok', { duration: 5000});
@@ -29,6 +28,18 @@ export class NoteIconlistComponent implements OnInit {
     error => {
       console.log(error);
       this.matSnackbar.open('Note not deleted', 'Ok', { duration: 4000});
+    });
+  }
+
+  onClickArchive() {
+    console.log('Archive note ', this.note.noteId);
+    this.noteService.archiveNote(this.note.noteId).subscribe((response: any) => {
+      console.log('Response ', response);
+      this.matSnackbar.open(response.message, 'Ok', { duration: 5000});
+    },
+    error => {
+      console.log(error);
+      this.matSnackbar.open('Note not archived', 'Ok', { duration: 5000});
     });
   }
 }
