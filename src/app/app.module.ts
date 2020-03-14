@@ -42,7 +42,8 @@ import { TrashComponent } from './components/trash/trash.component';
     PinNoteComponent,
     ReminderComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -52,6 +53,9 @@ import { TrashComponent } from './components/trash/trash.component';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule
+  ],
+  entryComponents: [
+    UpdateNoteComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

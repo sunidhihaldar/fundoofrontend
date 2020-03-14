@@ -1,14 +1,25 @@
-<mat-card>
-    <div>
-        <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned"></a>
-        <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"></a>
+<mat-card style="width: 470px;height: 270px;" mat-dialog-content fxLayout="column" fxFlex>
+    <div style="margin-left: 410px;">
+        <!--style="width: 470px;height: 250px;" <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned"></a>
+        <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"></a> -->
+        <app-pin-note></app-pin-note>
     </div>
-    <textarea id="title" [(ngModel)]="note.title" type="text" matInput></textarea>
-    <textarea id="description" [(ngModel)]="note.description" type="text" matInput></textarea>
-    <div>
+    <textarea id="title" [(ngModel)]="note.title" type="text" matInput placeholder="Title" class="input" style="width: 500px;font-size: 20px;"></textarea>
+    <textarea id="description" [(ngModel)]="note.description" type="text" matInput placeholder="Note" class="input" style="width: 500px;font-size: 20px;"></textarea>
+    <div style="margin-left: 370px;">
         <span>Edited at: {{note.updatedAt}}</span>
     </div>
-    <div>
+    <div style="margin-top: 60px;">
         <app-note-iconlist></app-note-iconlist>
+
+        <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Undo">
+            <i class="material-icons">undo</i>
+        </button>
+
+        <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Redo">
+            <i class="material-icons">redo</i>
+        </button>
+
+        <button mat-button (click)="onSubmit()">Close</button>
     </div>
 </mat-card>

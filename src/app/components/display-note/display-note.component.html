@@ -4,23 +4,20 @@
 
             <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
                 <app-pin-note [note]="note" (click)="onClickNoteId(note.noteId)"></app-pin-note>
-                <div (click)="openPopup(note)">
-                    <mat-card-title class="content">
-                        <textarea class="textArea" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-                            cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100" placeholder="Title"
-                            disabled>{{note.title}}</textarea>
+                <div>
+                    <mat-card-title placeholder="Title" (click)="openDialog(note)">
+                        {{note.title}}
                     </mat-card-title>
-                    <mat-card-content class="content">
-                        <textarea class="textArea" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-                            cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100" placeholder="Description"
-                            disabled>{{note.description}}</textarea>
+                    
+                    <mat-card-content placeholder="Description" (click)="openDialog(note)">
+                        {{note.description}}
                     </mat-card-content>
                 </div>
                  <div ng-init="expand = true" ng-mouseover="expand = false"> 
                      <div *ngIf="expand"> 
                       <div class="matCardFooter">
-                        <mat-card-footer style="opacity: .77;">
-                            <app-note-iconlist></app-note-iconlist>
+                        <mat-card-footer style="margin-top: -20px;">
+                            <app-note-iconlist [note]="note"></app-note-iconlist>
                         </mat-card-footer>
                     </div>
                   </div>

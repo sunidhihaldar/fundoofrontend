@@ -23,6 +23,6 @@
     <i class="material-icons">more_vert</i>
 </button>
 <mat-menu #menu="matMenu" class="menuclass">
-    <mat-list-item><button mat-button>Delete note</button></mat-list-item>
+    <mat-list-item><button mat-button (click)="onClickDelete()">Delete note</button></mat-list-item>
     <mat-list-item><button mat-button>Add label</button></mat-list-item>
 </mat-menu>

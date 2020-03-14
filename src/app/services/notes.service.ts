@@ -82,4 +82,12 @@ export class NotesService {
     console.log('Get all reminder notes');
     return this.httpService.get(`${environment.noteApiUrl + environment.getAllReminderNotesUrl}`, this.httpOptions);
   }
+
+  public deleteNote(note: any) {
+    console.log('note deleted');
+    return this.httpService.post(`${environment.noteApiUrl + environment.deleteNoteUrl}/${note}`, note, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}).pipe(tap(() => {
+          this._autoRefresh$.next();
+      }));
+  }
 }

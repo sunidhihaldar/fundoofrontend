@@ -15,7 +15,9 @@ export class UpdateNoteComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UpdateNoteComponent>,
             @Inject(MAT_DIALOG_DATA) public data: any,
             private noteServive: NotesService,
-            private snackBar: MatSnackBar) { }
+            private snackBar: MatSnackBar) { 
+              this.note = this.data.note;
+            }
 
   ngOnInit() {
   }
