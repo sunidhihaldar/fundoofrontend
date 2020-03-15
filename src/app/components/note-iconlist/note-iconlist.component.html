@@ -13,7 +13,7 @@
 <mat-menu #colorList="matMenu" [overlapTrigger]="false">
     <ng-template matMenuContent style="padding-top: 12px;padding-bottom: 15px;">
         <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px;" *ngFor="let rowcolors of colors" fxLayout="row">
-            <div   *ngFor="let colour of rowcolors">
+            <div  *ngFor="let colour of rowcolors">
                     <button mat-mini-fab [ngStyle]="{'background-color':colour.value}"
                         (click)="updateColour(colour.value)" matTooltip="{{ colour.name }}" class="color-menu"></button>
             </div>

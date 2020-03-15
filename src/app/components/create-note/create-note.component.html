@@ -47,15 +47,25 @@
                                     <mat-icon>person_add</mat-icon>
                                 </button>
                                 
-                                <button mat-icon-button class="notification" matTooltip="Change color">
+                                <button mat-icon-button class="notification" [matMenuTriggerFor]="colorList" matTooltip="Change color">
                                     <mat-icon>color_lens</mat-icon>
                                 </button>
-                                
+                                <mat-menu #colorList="matMenu" [overlapTrigger]="false">
+                                    <ng-template matMenuContent style="padding-top: 12px;padding-bottom: 15px;">
+                                        <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px;" *ngFor="let rowcolors of colors" fxLayout="row">
+                                            <div   *ngFor="let colour of rowcolors">
+                                                    <button mat-mini-fab [ngStyle]="{'background-color':colour.value}"
+                                                        (click)="updateColour(colour.value)" matTooltip="{{ colour.name }}" class="color-menu"></button>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </mat-menu>
+
                                 <button mat-icon-button  matTooltip="Add image" class="notification">
                                     <mat-icon>crop_original</mat-icon>
                                 </button>
                                 
-                                <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive">
+                                <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive" (click)="onClickArchive()">
                                     <i class="material-icons">archive</i>
                                 </button>
                                 
