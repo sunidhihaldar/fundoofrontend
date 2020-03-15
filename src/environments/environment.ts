@@ -16,12 +16,13 @@ export const environment = {
   getAllNotesUrl: '/getAllNotes',
   pinNote: '/pin',
   updateNote: '/updateNote',
-  setReminder: '/setReminder',
+  reminderUrl: '/setReminder',
   getAllReminderNotesUrl: '/getAllNotes/reminder',
   getAllArchivedNotesUrl: '/getAllNotes/archived',
   getAllTrashNotesUrl: '/getAllNotes/trashed',
   deleteNoteUrl: '/trash',
-  archiveNoteUrl: '/archive'
+  archiveNoteUrl: '/archive',
+  updateColourUrl: '/updateColour'
 };
 
 /*

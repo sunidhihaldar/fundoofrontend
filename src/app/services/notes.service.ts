@@ -61,7 +61,7 @@ export class NotesService {
 
   public setReminder(note: any) {
     console.log('Reminder set');
-    return this.httpService.put(`${environment.noteApiUrl + environment.setReminder}/${note}`, note, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+    return this.httpService.put(`${environment.noteApiUrl + environment.reminderUrl}/${note}`, note, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
       this.autoRefresh$.next();
     }));
   }
@@ -88,6 +88,14 @@ export class NotesService {
   public deleteNote(note: any) {
     console.log('note deleted');
     return this.httpService.post(`${environment.noteApiUrl + environment.deleteNoteUrl}/${note}`, note, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}).pipe(tap(() => {
+          this._autoRefresh$.next();
+      }));
+  }
+
+  public updateColour(noteId: any, colour: string) {
+    console.log('Update colour service ',`${environment.noteApiUrl + environment.updateColourUrl}/${noteId}?colour=${colour}`);
+    return this.httpService.put(`${environment.noteApiUrl + environment.updateColourUrl}/${noteId}?colour=${colour}`, noteId, { headers: new HttpHeaders().
       set('token',  localStorage.token)}).pipe(tap(() => {
           this._autoRefresh$.next();
       }));

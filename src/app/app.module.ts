@@ -23,6 +23,7 @@ import { PinNoteComponent } from './components/pin-note/pin-note.component';
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+//import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,6 @@ import { TrashComponent } from './components/trash/trash.component';
     ReminderComponent,
     ArchiveComponent,
     TrashComponent,
-  
   ],
   imports: [
     BrowserModule,
