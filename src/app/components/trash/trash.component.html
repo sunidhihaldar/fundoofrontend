@@ -1,6 +1,6 @@
 <div style="font-style: italic;font-size: 30px;margin-left: 320px;">Notes in trash</div>
 <div fxLayout="{{view}}" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 7%;margin-right: 7%;">
-    <mat-card *ngFor="let note of trashNotes">
+    <mat-card *ngFor="let note of trashNotes" [ngStyle]="{ 'background-color':note.colour}">
         <div style="font-size: 19px;">
             <strong>{{note.title}}</strong>
         </div>
@@ -10,7 +10,7 @@
         </div>
 
         <div style="margin-top: 20px;">
-            <button mat-icon-button matTooltip="Delete forever">
+            <button mat-icon-button matTooltip="Delete forever" (click)="onClickDeleteForever(note.noteId)">
                 <mat-icon>delete_forever</mat-icon>
             </button>
             <button mat-icon-button matTooltip="Restore">

@@ -1,4 +1,4 @@
-<mat-card style="width: 470px;height: 270px;" mat-dialog-content fxLayout="column" fxFlex>
+<mat-card style="width: 470px;height: 270px;" mat-dialog-content fxLayout="column" fxFlex [ngStyle]="{ 'background-color':note.colour}">
     <div style="margin-left: 410px;">
         <!--style="width: 470px;height: 250px;" <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned"></a>
         <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned"></a> -->

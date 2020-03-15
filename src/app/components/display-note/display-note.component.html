@@ -2,7 +2,7 @@
     <div>
         <div *ngFor="let note of listNotes;let notetempid = index" class="noteCard">
 
-            <mat-card class="matcard" autocomplete="off" role="combobox" flex="column">
+            <mat-card class="matcard" autocomplete="off" role="combobox" flex="column" [ngStyle]="{ 'background-color':note.colour}">
                 <app-pin-note [note]="note" (click)="onClickNoteId(note.noteId)"></app-pin-note>
                 <div style="width: 220px;margin-top: -30px;">
                     <mat-card-title placeholder="Title" (click)="openDialog(note)">

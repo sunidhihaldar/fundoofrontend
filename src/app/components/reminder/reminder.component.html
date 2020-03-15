@@ -3,7 +3,7 @@
 </div>
 <div style="margin-top: 80px;display: flex;">
     <div fxLayout="{{view}}" style="flex-direction: row;box-sizing: border-box;display: flex;margin-left: 7%;margin-right: 7%;">
-        <mat-card *ngFor="let note of reminderNotes" style="margin-left: 50px;">
+        <mat-card *ngFor="let note of reminderNotes" style="margin-left: 50px;" [ngStyle]="{ 'background-color':note.colour}">
             <div>
                 <div>
                     <app-pin-note></app-pin-note>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { MatSnackBar } from '@angular/material';
 import { NoteModel } from 'src/app/model/note-model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-note-iconlist',
@@ -12,6 +13,8 @@ export class NoteIconlistComponent implements OnInit {
 
   @Input() note: NoteModel;
   notes: NoteModel;
+
+  public dateTime: any;
 
   constructor(private noteService: NotesService,
               private matSnackbar: MatSnackBar) { }
@@ -53,23 +56,14 @@ export class NoteIconlistComponent implements OnInit {
       this.matSnackbar.open('Colour not updated', 'Ok', { duration: 5000});
     });
   }
-  //rgb(255, 179, 255)
-  arrayOfColours = [
+
+  colors =
     [
-      { colour: "pink", name: "pink" },
-      { colour: "rgb(255, 255, 128)", name: "darkGolden" },
-      { colour: "white", name: "white" }
-    ],
-    [
-      { colour: "slategray", name: "grey" },
-      { colour: "rgb(153, 221, 255)", name: "light blue" },
-      { colour: "rgb(200, 232, 104)", name: "light green" }
-    ],
-    [
-      { colour: "rgb(255, 153, 0)", name: "orange" },
-      { colour: "rgb(97, 191, 82)", name: "green" },
-      { colour: " rgb(158, 136, 191)", name: "purple" }
-    ]
-  ]
+      [{ name: 'white', value: 'white' }, { name: 'Yellow', value: 'yellow' }, { name: 'lightblue', value: 'lightblue' },],
+    
+      [{ name: 'Brown', value: 'brown' }, { name: 'pink', value: 'pink' }, { name: 'orange', value: 'orange' }, ],
+  
+      [ { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
+    ];
 
 }

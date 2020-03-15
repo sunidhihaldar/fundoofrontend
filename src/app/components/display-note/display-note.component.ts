@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { error } from 'protractor';
 import { NoteModel } from 'src/app/model/note-model';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
-import { AutofillMonitor } from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-display-note',

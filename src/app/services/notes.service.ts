@@ -100,4 +100,12 @@ export class NotesService {
           this._autoRefresh$.next();
       }));
   }
+
+  public deleteNotePermanently(note: any) {
+    console.log('Delete note permanently service');
+    return this.httpService.delete(`${environment.noteApiUrl + environment.deleteNotePermanentlyUrl}/${note}`, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}).pipe(tap(() => {
+          this._autoRefresh$.next();
+      }));
+  }
 }
