@@ -22,7 +22,8 @@ export const environment = {
   getAllTrashNotesUrl: '/getAllNotes/trashed',
   deleteNoteUrl: '/trash',
   archiveNoteUrl: '/archive',
-  updateColourUrl: '/updateColour'
+  updateColourUrl: '/updateColour',
+  deleteNotePermanentlyUrl: '/delete'
 };
 
 /*

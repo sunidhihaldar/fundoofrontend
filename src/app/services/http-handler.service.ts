@@ -21,4 +21,7 @@ export class HttpHandlerService {
     return this.http.put(url, body, options);
   }
   
+  delete(url: any, options: any): Observable<any> {
+    return this.http.delete(url, options);
+  }
 }
