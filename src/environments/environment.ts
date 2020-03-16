@@ -23,7 +23,10 @@ export const environment = {
   deleteNoteUrl: '/trash',
   archiveNoteUrl: '/archive',
   updateColourUrl: '/updateColour',
-  deleteNotePermanentlyUrl: '/delete'
+  deleteNotePermanentlyUrl: '/delete',
+
+  labelApiUrl: 'http://localhost:8083/labels',
+  getAllLabelsUrl: '/getAllLabels'
 };
 
 /*
