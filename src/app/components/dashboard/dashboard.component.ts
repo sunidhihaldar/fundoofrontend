@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoteModel } from 'src/app/model/note-model';
 import { LabelsService } from 'src/app/services/labels.service';
+import { MatDialog } from '@angular/material';
+import { LabelComponent } from '../label/label.component';
+import { LabelModel } from 'src/app/model/label-model';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,12 +17,15 @@ export class DashboardComponent implements OnInit {
   name = localStorage.firstName;
   pic = 'assets/icons/index.png';
   reminder:NoteModel;
-  listLabels = [];
+  listLabels: LabelModel[];
+  label: LabelModel[];
 
   constructor(private router: Router,
-              private labelService: LabelsService) { }
+              private labelService: LabelsService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.getAllLabels();
   }
 
   refresh(): void {
@@ -53,11 +59,21 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['dashboard/trash']);
   }
 
-   getAllLabelss() {
-  //   this.labelService.getAllLabels().subscribe((response: any) => {
-  //     this.listLabels = response.object;
-  //     console.log(response.object);
-  //   });
+   getAllLabels() {
+    this.labelService.getAllLabels().subscribe((response: any) => {
+      this.listLabels = response.object;
+      console.log(response.object);
+    });
+   }
+
+   openDialog() {
+     console.log('Edit label clicked');
+     console.log('Labels: ', this.label)
+     const dialogRef = this.dialog.open(LabelComponent, {
+       width: '330px',
+       height: '200px',
+       panelClass: 'custom-dialog-container'
+     });
    }
   
 }

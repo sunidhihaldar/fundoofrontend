@@ -27,7 +27,8 @@ export const environment = {
   restoreNoteUrl: '/restore',
 
   labelApiUrl: 'http://localhost:8083/labels',
-  getAllLabelsUrl: '/getAllLabels'
+  getAllLabelsUrl: '/getAllLabels',
+  createLabelUrl: '/create'
 };
 
 /*

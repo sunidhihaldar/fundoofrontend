@@ -92,13 +92,13 @@
                     <div *ngFor="let label of listLabels">
                         <button class="remindersButton" mat-button>
                             <mat-icon class="reminderIcon">label_important</mat-icon>
-                            <span class="reminder-label">label</span>
+                            <span class="reminder-label">{{label.labelName}}</span>
                         </button>
                     </div>
                 </div>
                 
                 <div class="labelsButton">
-                    <button class="remindersButton" mat-button >
+                    <button class="remindersButton" mat-button (click)="openDialog()">
                       <mat-icon class="reminderIcon">create</mat-icon>
                       <span class="reminder-label">Edit Labels</span>
                     </button>

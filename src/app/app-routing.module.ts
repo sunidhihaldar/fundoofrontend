@@ -13,6 +13,7 @@ import { DisplayNoteComponent } from './components/display-note/display-note.com
 import { ReminderComponent } from './components/reminder/reminder.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { LabelComponent } from './components/label/label.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
     {path:'note', component: NoteComponent},
     { path:'reminder', component: ReminderComponent},
     { path:'archive', component: ArchiveComponent},
-    { path:'trash', component: TrashComponent}
+    { path:'trash', component: TrashComponent},
+    { path: 'label', component: LabelComponent}
   ]},
   {path:'**', component: PageNotFoundComponent}
 ];
