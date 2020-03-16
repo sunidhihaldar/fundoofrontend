@@ -45,4 +45,15 @@ export class TrashComponent implements OnInit {
     });
   }
 
+  onClickRestore(noteId) {
+    console.log('Note restore ', noteId);
+    this.noteService.restoreNote(noteId).subscribe((response: any) => {
+      this.matSnackbar.open(response.message, 'Ok', { duration: 5000 });
+    },
+    error => {
+      console.log(error);
+      this.matSnackbar.open('Error.....note not restored', 'Ok', { duration: 5000 });
+    });
+  }
+
 }
