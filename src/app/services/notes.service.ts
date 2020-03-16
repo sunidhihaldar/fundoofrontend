@@ -68,6 +68,9 @@ export class NotesService {
 
   public restoreNote(note: any) {
     console.log('Note restored');
+    return this.httpService.post(`${environment.noteApiUrl + environment.restoreNoteUrl}`, note, {headers: new HttpHeaders().set('token', localStorage.token)}).pipe(tap(() => {
+      this.autoRefresh$.next();
+    }));
   }
 
   public getAllArchivedNotes() {

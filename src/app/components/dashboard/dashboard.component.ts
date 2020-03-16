@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoteModel } from 'src/app/model/note-model';
+import { LabelsService } from 'src/app/services/labels.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,8 +14,10 @@ export class DashboardComponent implements OnInit {
   name = localStorage.firstName;
   pic = 'assets/icons/index.png';
   reminder:NoteModel;
+  listLabels = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private labelService: LabelsService) { }
 
   ngOnInit() {
   }
@@ -49,4 +52,12 @@ export class DashboardComponent implements OnInit {
   navigateToTrash() {
     this.router.navigate(['dashboard/trash']);
   }
+
+   getAllLabelss() {
+  //   this.labelService.getAllLabels().subscribe((response: any) => {
+  //     this.listLabels = response.object;
+  //     console.log(response.object);
+  //   });
+   }
+  
 }

@@ -24,6 +24,7 @@ export const environment = {
   archiveNoteUrl: '/archive',
   updateColourUrl: '/updateColour',
   deleteNotePermanentlyUrl: '/delete',
+  restoreNoteUrl: '/restore',
 
   labelApiUrl: 'http://localhost:8083/labels',
   getAllLabelsUrl: '/getAllLabels'
