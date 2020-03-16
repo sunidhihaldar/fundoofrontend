@@ -25,10 +25,10 @@
     <mat-icon>crop_original</mat-icon>
 </button>
 
-<button *ngIf="!isArchived" margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive" (click)="onClickArchive()">
+<button *ngIf="!note.archived" margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Archive" (click)="onClickArchive()">
     <i class="material-icons">archive</i>
 </button>
-<button *ngIf="isArchived" margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Unarchive" (click)="onClickArchive()">
+<button *ngIf="note.archived" margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Unarchive" (click)="onClickArchive()">
     <i class="material-icons">unarchive</i>
 </button>
 

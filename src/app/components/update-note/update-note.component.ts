@@ -14,8 +14,8 @@ export class UpdateNoteComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<UpdateNoteComponent>,
             @Inject(MAT_DIALOG_DATA) public data: any,
-            private noteServive: NotesService,
-            private snackBar: MatSnackBar) { 
+            private noteService: NotesService,
+            private matSnackbar: MatSnackBar) { 
               this.note = this.data.note;
             }
 
@@ -24,12 +24,12 @@ export class UpdateNoteComponent implements OnInit {
 
   onSubmit() {
     this.dialogRef.close();
-    this.noteServive.updateNote(this.note).subscribe((response) => {
-      this.snackBar.open('Note updated', 'Ok', { duration: 4000 });
+    this.noteService.updateNote(this.note).subscribe((response) => {
+      this.matSnackbar.open('Note updated', 'Ok', { duration: 4000 });
     },
     error => {
       console.log(error);
-      this.snackBar.open('Error!....Note not updated', 'Ok', { duration: 4000});
+      this.matSnackbar.open('Error!....Note not updated', 'Ok', { duration: 4000});
     });
   }
 }

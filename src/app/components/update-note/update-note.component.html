@@ -10,7 +10,7 @@
         <span>Edited at: {{note.updatedAt}}</span>
     </div>
     <div style="margin-top: 60px;">
-        <app-note-iconlist></app-note-iconlist>
+        <app-note-iconlist [note]="note"></app-note-iconlist>
 
         <button margin="14px" mat-icon-button fxHide.xs="true" matTooltip="Undo">
             <i class="material-icons">undo</i>
