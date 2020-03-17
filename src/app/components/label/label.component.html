@@ -18,11 +18,11 @@
             </button>
         </div>
     </div>
-    <div *ngIf="label.labelId!=null">
+    <div *ngIf="label.labelI!=null">
         {{label.labelName}}
     </div>
     <mat-divider></mat-divider>
     <div style="margin-left: 220px;">
-        <button mat-button>Done</button>
+        <button mat-button (click)="onSubmit()">Done</button>
     </div>
 </div>
