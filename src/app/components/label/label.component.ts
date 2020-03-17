@@ -36,7 +36,7 @@ export class LabelComponent implements OnInit {
 
   onSubmit() {
     this.dialogRef.close();
-    if(this.label.labelName !== '') {
+    if(this.label.labelName !== null) {
       this.labelService.createLabel(this.label).subscribe((response: any) => {
         console.log(response);
       },
