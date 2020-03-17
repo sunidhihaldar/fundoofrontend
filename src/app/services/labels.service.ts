@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { LabelModel } from '../model/label-model';
+import { NoteModel } from '../model/note-model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,10 @@ export class LabelsService {
 
   createLabel(label: LabelModel) {
     return this.httpService.post(`${environment.labelApiUrl + environment.createLabelUrl}`, label, this.httpOptions);
+  }
+
+  addLabel(label: LabelModel, note: NoteModel) {
+    console.log('Add label service');
+    return this.httpService.post(`${environment.labelApiUrl + environment.addLabelUrl}?labelId=${label}&noteId=${note}`, {}, this.httpOptions);
   }
 }

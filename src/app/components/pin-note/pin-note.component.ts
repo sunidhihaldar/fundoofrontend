@@ -14,7 +14,6 @@ export class PinNoteComponent implements OnInit {
   pin: boolean = true;
   unpin: boolean = true;
   @Input() note: NoteModel;
-  noteId:any;
 
   constructor(private noteService: NotesService,
               private matSnackbar: MatSnackBar) { }
@@ -28,10 +27,12 @@ export class PinNoteComponent implements OnInit {
       if(!this.pin) {
         this.matSnackbar.open('Note pinned', 'Ok', { duration: 4000 });
         this.pin = true;
+        this.isPinned = true;
       }
       if(!this.unpin) {
         this.matSnackbar.open('Note unpinned', 'Ok', { duration: 4000});
         this.unpin = true;
+        this.isPinned = false;
       }
     },
     error => {

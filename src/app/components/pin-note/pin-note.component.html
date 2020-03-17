@@ -1,9 +1,9 @@
 <!-- <a><img src="assets/icons/unpin.svg" *ngIf="!isPinned" (click)="isPinned=!isPinned" style="margin-left: 230px;"></a>
 <a><img src="assets/icons/pinned.svg" *ngIf="isPinned" (click)="isPinned=!isPinned" style="margin-left: 230px;"></a> -->
 
-<div *ngIf="!note.pinned" (click)="pin=!pin">
+<div *ngIf="!isPinned" (click)="pin=!pin">
     <a><img src="assets/icons/unpin.svg" id="pin" (click)="onPinNote(note.noteId)" style="margin-left: 230px;"></a>
 </div>
- <div *ngIf="note.pinned" (click)="isPinned=!isPinned">
+ <div *ngIf="isPinned" (click)="isPinned=!isPinned">
     <a><img src="assets/icons/pinned.svg" id="pin" (click)="onPinNote(note.noteId)" style="margin-left: 230px;"></a>
 </div> 
