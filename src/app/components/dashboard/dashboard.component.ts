@@ -22,7 +22,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router,
               private labelService: LabelsService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog) { 
+                this.labelService.autoRefresh.subscribe(() => {
+                  this.getAllLabels();
+                });
+              }
 
   ngOnInit() {
     this.getAllLabels();
@@ -68,7 +72,7 @@ export class DashboardComponent implements OnInit {
 
    openDialog() {
      console.log('Edit label clicked');
-     console.log('Labels: ', this.label)
+     //console.log('Labels: ', this.label);
      const dialogRef = this.dialog.open(LabelComponent, {
        width: '330px',
        height: '200px',

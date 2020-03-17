@@ -23,7 +23,7 @@ export class PinNoteComponent implements OnInit {
   }
 
   onPinNote(noteId) {
-    console.log('pin note called'+noteId);
+    console.log('pin note called '+noteId);
     this.noteService.pinNote(noteId).subscribe(response => {
       if(!this.pin) {
         this.matSnackbar.open('Note pinned', 'Ok', { duration: 4000 });
