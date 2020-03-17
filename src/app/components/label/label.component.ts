@@ -9,12 +9,17 @@ import { LabelModel } from 'src/app/model/label-model';
 })
 export class LabelComponent implements OnInit {
 
-  @Input() label: LabelModel = new LabelModel();
+  label: LabelModel = new LabelModel();
   token = localStorage.getItem('token');
+  hitCancel: boolean;
 
   constructor(private labelService: LabelsService) { }
 
   ngOnInit() {
+  }
+
+  cancel() {
+    this.hitCancel = true;
   }
 
   createLabel() {

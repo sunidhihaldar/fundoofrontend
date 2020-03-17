@@ -25,7 +25,7 @@ export class UpdateNoteComponent implements OnInit {
   onSubmit() {
     this.dialogRef.close();
     this.noteService.updateNote(this.note).subscribe((response) => {
-      this.matSnackbar.open('Note updated', 'Ok', { duration: 4000 });
+      this.matSnackbar.open(response.message, 'Ok', { duration: 4000 });
     },
     error => {
       console.log(error);
