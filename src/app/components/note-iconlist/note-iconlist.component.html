@@ -42,5 +42,7 @@
 </button>
 <mat-menu #menu="matMenu" class="menuclass">
     <mat-list-item><button mat-button (click)="onClickDelete()">Delete note</button></mat-list-item>
-    <mat-list-item><button mat-button>Add label</button></mat-list-item>
+    <mat-list-item><button mat-button (click)="onClickLabel()">Add label</button></mat-list-item>
 </mat-menu>
+
+<!-- <mat-menu #labelMenu="matMenu"></mat-menu> -->

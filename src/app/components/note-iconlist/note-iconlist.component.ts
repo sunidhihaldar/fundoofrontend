@@ -3,6 +3,8 @@ import { NotesService } from 'src/app/services/notes.service';
 import { MatSnackBar } from '@angular/material';
 import { NoteModel } from 'src/app/model/note-model';
 import { formatDate } from '@angular/common';
+import { LabelsService } from 'src/app/services/labels.service';
+import { LabelModel } from 'src/app/model/label-model';
 
 @Component({
   selector: 'app-note-iconlist',
@@ -13,10 +15,12 @@ export class NoteIconlistComponent implements OnInit {
 
   @Input() note: NoteModel;
   notes: NoteModel;
+  label: LabelModel;
 
   public dateTime: any;
 
   constructor(private noteService: NotesService,
+              private labelService: LabelsService,
               private matSnackbar: MatSnackBar) { }
 
   ngOnInit() {
@@ -66,4 +70,14 @@ export class NoteIconlistComponent implements OnInit {
       [ { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
     ];
 
+    onClickLabel() {
+      console.log('Add label clicked');
+      this.labelService.addLabel(this.label, this.note).subscribe((response: any) => {
+        console.log('Label added: ', this.label.labelName, this.note.noteId);
+        console.log('Response: ', response);
+      },
+      error => {
+        console.log(error);
+      });
+    }
 }

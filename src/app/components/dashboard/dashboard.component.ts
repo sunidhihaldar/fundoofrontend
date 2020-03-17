@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['dashboard/trash']);
   }
 
-   getAllLabels() {
+  getAllLabels() {
     this.labelService.getAllLabels().subscribe((response: any) => {
       this.listLabels = response.object;
       console.log(response.object);
@@ -71,13 +71,14 @@ export class DashboardComponent implements OnInit {
    }
 
    openDialog() {
-     console.log('Edit label clicked');
-     //console.log('Labels: ', this.label);
      const dialogRef = this.dialog.open(LabelComponent, {
        width: '330px',
        height: '200px',
        panelClass: 'custom-dialog-container'
      });
+     dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
    }
   
 }
