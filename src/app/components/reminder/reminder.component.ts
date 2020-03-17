@@ -3,6 +3,7 @@ import { NoteModel } from 'src/app/model/note-model';
 import { NotesService } from 'src/app/services/notes.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+import { UpdateNoteComponent } from '../update-note/update-note.component';
 
 @Component({
   selector: 'app-reminder',
@@ -17,8 +18,8 @@ export class ReminderComponent implements OnInit {
   isTrashed: boolean;
 
   constructor(private noteService: NotesService,
-              private router: Router
-              //private dialog: MatDialog,
+              private router: Router,
+              private dialog: MatDialog
               //public dialogRef: MatDialogRef<ReminderComponent>,
               //@Inject(MAT_DIALOG_DATA) public data: any
               ) { 
@@ -37,6 +38,19 @@ export class ReminderComponent implements OnInit {
     this.noteService.getAllReminderNotes().subscribe((response: any) => {
       this.reminderNotes = response.object;
       console.log('Response ',response.object);
+    });
+  }
+
+  openDialog(note): void {
+    console.log('note id: ', note.noteId);
+    const dialogRef = this.dialog.open(UpdateNoteComponent, {
+      width: '800px',
+      height: '300px',
+      panelClass: 'custom-dialog-container',
+      data: { note }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 

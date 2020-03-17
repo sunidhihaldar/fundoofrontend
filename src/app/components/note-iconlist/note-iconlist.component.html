@@ -1,6 +1,11 @@
-<button mat-icon-button class="notification" matTooltip="Remind me">
+<button mat-icon-button class="notification" [matMenuTriggerFor]="dateTime" matTooltip="Remind me">
     <mat-icon>add_alert</mat-icon>
 </button>
+<mat-menu #dateTime="matMenu" [overlapTrigger]="false">
+    <mat-form-field>
+        <input matInput type="datetime-local" placeholder="start date">
+    </mat-form-field>
+</mat-menu>
 
 <button mat-icon-button class="notification" matTooltip="Collaborator">
     <mat-icon>person_add</mat-icon>
@@ -9,7 +14,6 @@
 <button mat-icon-button class="notification" [matMenuTriggerFor]="colorList" matTooltip="Change color">
     <mat-icon>color_lens</mat-icon>
 </button>
-
 <mat-menu #colorList="matMenu" [overlapTrigger]="false">
     <ng-template matMenuContent style="padding-top: 12px;padding-bottom: 15px;">
         <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px;" *ngFor="let rowcolors of colors" fxLayout="row">
