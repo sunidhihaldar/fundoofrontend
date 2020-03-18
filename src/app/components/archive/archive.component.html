@@ -11,7 +11,11 @@
             </div>
     
             <div *ngIf="note.reminder!=null">
-                {{note.reminder}}
+                <mat-chip-list>
+                    <mat-chip>
+                        {{note.reminder}}
+                    </mat-chip>
+                </mat-chip-list>
             </div>
     
             <div>

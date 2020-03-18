@@ -14,7 +14,11 @@
                     </mat-card-content>
                 </div>
                 <div *ngIf="note.reminder!=null">
-                    {{note.reminder}}
+                    <mat-chip-list>
+                        <mat-chip>
+                            {{note.reminder}}
+                        </mat-chip>
+                    </mat-chip-list>
                 </div>
                  <div ng-init="expand = true" ng-mouseover="expand = false"> 
                      <div *ngIf="expand"> 
