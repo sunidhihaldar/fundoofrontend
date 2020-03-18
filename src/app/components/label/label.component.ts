@@ -43,6 +43,16 @@ export class LabelComponent implements OnInit {
     });
    }
 
+   onClickDeleteLabel(labelId) {
+     console.log('Label delete ', labelId);
+     this.labelService.deleteLabel(labelId).subscribe((response: any) => {
+       console.log('Label deleted: ', response);
+     },
+     error => {
+       console.log(error);
+     });
+   }
+
   onSubmit() {
     this.dialogRef.close();
     if(this.label.labelName !== null) {

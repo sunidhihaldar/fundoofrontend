@@ -37,7 +37,7 @@ export class LabelsService {
     return this.httpService.post(`${environment.labelApiUrl + environment.addLabelUrl}?labelId=${label}&noteId=${note}`, {}, this.httpOptions);
   }
 
-  deleteLabel(label: LabelModel) {
-    return this.httpService.delete(`${environment.labelApiUrl + environment.deleteLabelUrl}`, this.httpOptions);
+  deleteLabel(labelId: any) {
+    return this.httpService.delete(`${environment.labelApiUrl + environment.deleteLabelUrl}?labelId=${labelId}`, this.httpOptions);
   }
 }

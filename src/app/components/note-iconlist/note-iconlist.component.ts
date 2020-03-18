@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { NoteModel } from 'src/app/model/note-model';
 import { formatDate } from '@angular/common';
 import { LabelsService } from 'src/app/services/labels.service';
 import { LabelModel } from 'src/app/model/label-model';
+import { AddLabelComponent } from '../add-label/add-label.component';
 
 @Component({
   selector: 'app-note-iconlist',
@@ -20,8 +21,8 @@ export class NoteIconlistComponent implements OnInit {
   public dateTime: any;
 
   constructor(private noteService: NotesService,
-              private labelService: LabelsService,
-              private matSnackbar: MatSnackBar) { }
+              private matSnackbar: MatSnackBar,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -70,14 +71,14 @@ export class NoteIconlistComponent implements OnInit {
       [ { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
     ];
 
-    onClickLabel() {
-      console.log('Add label clicked');
-      this.labelService.addLabel(this.label, this.note).subscribe((response: any) => {
-        console.log('Label added: ', this.label.labelName, this.note.noteId);
-        console.log('Response: ', response);
-      },
-      error => {
-        console.log(error);
+    openDialog() {
+      const dialogRef = this.dialog.open(AddLabelComponent, {
+        width: 'auto',
+        height: 'auto',
+        panelClass: 'custom-dialog-container'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Dialog closed');
       });
     }
 }

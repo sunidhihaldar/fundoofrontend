@@ -19,7 +19,7 @@
         </div>
     </div>
     <div *ngFor="let label of listLabels">
-        <button mat-icon-button matTooltip="Delete label">
+        <button mat-icon-button matTooltip="Delete label" (click)="onClickDeleteLabel(label.labelId)">
             <mat-icon>delete</mat-icon>
         </button>
         {{label.labelName}}
