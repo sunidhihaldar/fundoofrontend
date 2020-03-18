@@ -53,9 +53,23 @@
     matTooltip="More">
     <i class="material-icons">more_vert</i>
 </button>
-<mat-menu #menu="matMenu" class="menuclass">
-    <mat-list-item><button mat-button (click)="onClickDelete()">Delete note</button></mat-list-item>
-    <mat-list-item><button mat-button>Add label</button></mat-list-item>
+<mat-menu #menu="matMenu" class="menuclass" [overlapTrigger]="true">
+    <!-- <mat-list-item><button mat-button (click)="onClickDelete()">Delete note</button></mat-list-item>
+    <mat-list-item><button mat-button [matMenuTriggerFor]="labelMenu">Add label</button></mat-list-item> -->
+    <button mat-menu-item (click)="onClickDelete()">Delete note</button>
+    <button mat-menu-item [matMenuTriggerFor]="labelMenu">add label</button>
 </mat-menu>
 
-<!-- <mat-menu #labelMenu="matMenu"></mat-menu> -->
+<mat-menu #labelMenu="matMenu" [overlapTrigger]="true">
+    <div>Label Note</div>
+    <mat-card style="height: 10px;">
+        <input type="text" placeholder="Search label name" class="resizedTextbox">
+        <button mat-icon-button style="margin-bottom: 7px;">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-card>
+    <div *ngFor="let label of listLabels">
+        <button mat-menu-item>{{label.labelName}}</button>
+        <!-- <mat-list-item><button>{{label.labelName}}</button></mat-list-item> -->
+    </div>
+</mat-menu>

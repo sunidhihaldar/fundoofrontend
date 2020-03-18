@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { NoteModel } from 'src/app/model/note-model';
 import { formatDate } from '@angular/common';
 import { LabelsService } from 'src/app/services/labels.service';
@@ -16,14 +16,20 @@ export class NoteIconlistComponent implements OnInit {
   @Input() note: NoteModel;
   notes: NoteModel;
   label: LabelModel;
+  listLabels = [];
 
   public dateTime: any;
 
   constructor(private noteService: NotesService,
-              private matSnackbar: MatSnackBar,
-              private dialog: MatDialog) { }
+              private labelService: LabelsService,
+              private matSnackbar: MatSnackBar) { 
+                this.labelService.autoRefresh.subscribe(() => {
+                  this.getAllLabels();
+                });
+              }
 
   ngOnInit() {
+    this.getAllLabels();
   }
 
   onClickDelete() {
@@ -69,4 +75,12 @@ export class NoteIconlistComponent implements OnInit {
   
       [ { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
     ];
+
+    getAllLabels() {
+      this.labelService.getAllLabels().subscribe((response: any) => {
+        this.listLabels = response.object;
+      });
+     }
+
+
 }
