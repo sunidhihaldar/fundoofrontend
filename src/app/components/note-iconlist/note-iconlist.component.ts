@@ -5,7 +5,6 @@ import { NoteModel } from 'src/app/model/note-model';
 import { formatDate } from '@angular/common';
 import { LabelsService } from 'src/app/services/labels.service';
 import { LabelModel } from 'src/app/model/label-model';
-import { AddLabelComponent } from '../add-label/add-label.component';
 
 @Component({
   selector: 'app-note-iconlist',
@@ -70,15 +69,4 @@ export class NoteIconlistComponent implements OnInit {
   
       [ { name: 'red', value: 'red' }, { name: 'aqua', value: 'aqua' }, { name: 'silver', value: 'silver' }]
     ];
-
-    openDialog() {
-      const dialogRef = this.dialog.open(AddLabelComponent, {
-        width: 'auto',
-        height: 'auto',
-        panelClass: 'custom-dialog-container'
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Dialog closed');
-      });
-    }
 }

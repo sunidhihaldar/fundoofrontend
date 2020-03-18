@@ -24,7 +24,6 @@ import { ReminderComponent } from './components/reminder/reminder.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { LabelComponent } from './components/label/label.component';
-import { AddLabelComponent } from './components/add-label/add-label.component';
 
 @NgModule({
   declarations: [
@@ -45,8 +44,7 @@ import { AddLabelComponent } from './components/add-label/add-label.component';
     ReminderComponent,
     ArchiveComponent,
     TrashComponent,
-    LabelComponent,
-    AddLabelComponent
+    LabelComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +57,7 @@ import { AddLabelComponent } from './components/add-label/add-label.component';
   ],
   entryComponents: [
     UpdateNoteComponent,
-    LabelComponent,
-    AddLabelComponent
+    LabelComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
