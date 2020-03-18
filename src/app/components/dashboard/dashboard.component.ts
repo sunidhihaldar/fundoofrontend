@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   pic = 'assets/icons/index.png';
   reminder:NoteModel;
   listLabels: LabelModel[];
-  label: LabelModel[];
+  label: LabelModel;
 
   constructor(private router: Router,
               private labelService: LabelsService,
@@ -73,8 +73,9 @@ export class DashboardComponent implements OnInit {
    openDialog() {
      const dialogRef = this.dialog.open(LabelComponent, {
        width: '330px',
-       height: '200px',
-       panelClass: 'custom-dialog-container'
+       height: 'Auto',
+       panelClass: 'custom-dialog-container',
+       data: this.listLabels
      });
      dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

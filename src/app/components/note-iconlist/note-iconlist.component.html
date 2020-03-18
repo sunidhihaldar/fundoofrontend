@@ -2,9 +2,22 @@
     <mat-icon>add_alert</mat-icon>
 </button>
 <mat-menu #dateTime="matMenu" [overlapTrigger]="false">
-    <mat-form-field>
-        <input matInput type="datetime-local" placeholder="start date">
-    </mat-form-field>
+    <div>Reminder:</div>
+    <div>
+        <button mat-icon-button type="submit">Later today 8:00 PM</button>
+    </div>
+    <div>
+        <button mat-icon-button type="submit">Tomorrrow  8:00 AM</button>
+    </div>
+    <div>
+        <button mat-icon-button type="submit">Next week Mon,8:00 AM</button>
+    </div>
+    <div style="display: flex;">
+        <button mat-icon-button>
+            <mat-icon>query_builder</mat-icon>
+            <span>Pick date & time</span>
+        </button>
+    </div>
 </mat-menu>
 
 <button mat-icon-button class="notification" matTooltip="Collaborator">

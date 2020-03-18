@@ -27,8 +27,8 @@ const routes: Routes = [
     {path:'note', component: NoteComponent},
     { path:'reminder', component: ReminderComponent},
     { path:'archive', component: ArchiveComponent},
-    { path:'trash', component: TrashComponent},
-    { path: 'label', component: LabelComponent}
+    { path:'trash', component: TrashComponent}
+    //{ path: 'label', component: LabelComponent}
   ]},
   {path:'**', component: PageNotFoundComponent}
 ];

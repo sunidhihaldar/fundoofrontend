@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { LabelsService } from 'src/app/services/labels.service';
 import { LabelModel } from 'src/app/model/label-model';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-label',
@@ -13,11 +13,13 @@ export class LabelComponent implements OnInit {
   label: LabelModel = new LabelModel();
   token = localStorage.getItem('token');
   hitCancel: boolean;
+  listLabels = [];
 
   constructor(private labelService: LabelsService,
               private dialogRef: MatDialogRef<LabelComponent>) { }
 
   ngOnInit() {
+    this.getAllLabels();
   }
 
   cancel() {
@@ -33,6 +35,13 @@ export class LabelComponent implements OnInit {
       console.log(error);
     });
   }
+
+  getAllLabels() {
+    this.labelService.getAllLabels().subscribe((response: any) => {
+      this.listLabels = response.object;
+      console.log('Labels: ',response.object);
+    });
+   }
 
   onSubmit() {
     this.dialogRef.close();

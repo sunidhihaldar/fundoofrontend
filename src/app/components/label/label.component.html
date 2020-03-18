@@ -18,8 +18,14 @@
             </button>
         </div>
     </div>
-    <div *ngIf="label.labelI!=null">
+    <div *ngFor="let label of listLabels">
+        <button mat-icon-button matTooltip="Delete label">
+            <mat-icon>delete</mat-icon>
+        </button>
         {{label.labelName}}
+        <button mat-icon-button matTooltip="Rename label">
+            <mat-icon>edit</mat-icon>
+        </button>
     </div>
     <mat-divider></mat-divider>
     <div style="margin-left: 220px;">
