@@ -29,7 +29,10 @@ export class LabelsService {
   }
 
   createLabel(label: LabelModel) {
-    return this.httpService.post(`${environment.labelApiUrl + environment.createLabelUrl}`, label, this.httpOptions);
+    return this.httpService.post(`${environment.labelApiUrl + environment.createLabelUrl}`, label, { headers: new HttpHeaders().
+      set('token',  localStorage.token)}).pipe(tap(() => {
+          this._autoRefresh$.next();
+      }));
   }
 
   addLabel(labelId: any, noteId: any) {

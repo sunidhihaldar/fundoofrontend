@@ -18,7 +18,7 @@ export class NoteIconlistComponent implements OnInit {
   label: LabelModel;
   listLabels = [];
 
-  public dateTime: any;
+  public dateTime: Date;
 
   constructor(private noteService: NotesService,
               private labelService: LabelsService,

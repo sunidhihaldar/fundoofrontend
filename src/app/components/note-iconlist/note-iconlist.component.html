@@ -1,24 +1,54 @@
-<button mat-icon-button class="notification" [matMenuTriggerFor]="dateTime" matTooltip="Remind me">
+<button mat-icon-button class="notification" [matMenuTriggerFor]="dateTimeMenu" matTooltip="Remind me">
     <mat-icon>add_alert</mat-icon>
 </button>
-<mat-menu #dateTime="matMenu" [overlapTrigger]="false">
-    <div>Reminder:</div>
-    <div>
-        <button mat-icon-button type="submit">Later today 8:00 PM</button>
-    </div>
-    <div>
-        <button mat-icon-button type="submit">Tomorrrow  8:00 AM</button>
-    </div>
-    <div>
-        <button mat-icon-button type="submit">Next week Mon,8:00 AM</button>
-    </div>
-    <div style="display: flex;">
-        <button mat-icon-button>
+<mat-menu #dateTimeMenu="matMenu" [overlapTrigger]="false">
+    <div style="width: 180px;">
+     <div>Reminder:</div>
+        <button mat-menu-item type="submit">Later today 8:00 PM</button>
+        <button mat-menu-item type="submit">Tomorrrow  8:00 AM</button>
+        <button mat-menu-item type="submit">Next week Mon,8:00 AM</button>
+        <button mat-menu-item  [matMenuTriggerFor]="menuDateTime">
             <mat-icon>query_builder</mat-icon>
-            <span>Pick date & time</span>
+            Pick date & time
         </button>
     </div>
 </mat-menu>
+<!-- <mat-menu #menuDateTime="matMenu">
+    <input placeholder="Date Time:"
+               [(ngModel)]="dateTime"
+               [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+        <owl-date-time #dt></owl-date-time>
+ </mat-menu> -->
+    <mat-menu #menuDateTime="matMenu" class="example-trigger">
+      <div fxLayout="row wrap">
+        <div>
+          <mat-icon style=" zoom: 0.8;">keyboard_backspace</mat-icon>
+        </div>
+        <div>
+          Pick date & time
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div style="display: inline-block;">
+        <mat-form-field>
+            <label>
+          <input matInput [(ngModel)]="dateTime" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1"
+            placeholder="Select date">
+          <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+        </label>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+        <label>
+          <input matInput placeholder="select time" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2">
+          <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+        </label>
+        </mat-form-field>
+      </div>
+    </mat-menu>
+
+
 
 <button mat-icon-button class="notification" matTooltip="Collaborator">
     <mat-icon>person_add</mat-icon>
@@ -53,18 +83,16 @@
     matTooltip="More">
     <i class="material-icons">more_vert</i>
 </button>
-<mat-menu #menu="matMenu" class="menuclass" [overlapTrigger]="true">
-    <!-- <mat-list-item><button mat-button (click)="onClickDelete()">Delete note</button></mat-list-item>
-    <mat-list-item><button mat-button [matMenuTriggerFor]="labelMenu">Add label</button></mat-list-item> -->
+<mat-menu #menu="matMenu" class="menuclass">
     <button mat-menu-item (click)="onClickDelete()">Delete note</button>
-    <button mat-menu-item [matMenuTriggerFor]="labelMenu">add label</button>
+    <button mat-menu-item [matMenuTriggerFor]="labelMenu">Add label</button>
 </mat-menu>
 
-<mat-menu #labelMenu="matMenu" [overlapTrigger]="true">
+<mat-menu #labelMenu="matMenu" overlapTrigger="true" xPosition="after">
     <div>Label Note</div>
     <mat-card style="height: 10px;">
         <input type="text" placeholder="Search label name" class="resizedTextbox">
-        <button mat-icon-button style="margin-bottom: 7px;">
+        <button mat-icon-button >
             <mat-icon>search</mat-icon>
         </button>
     </mat-card>
@@ -76,7 +104,5 @@
         </mat-button-toggle-group> -->
         <input type="checkbox" (click)="onClickAddLabel(label.labelId, note.noteId)">
             {{label.labelName}}
-        <!-- <mat-checkbox></mat-checkbox>
-        <label mat-menu-item>{{label.labelName}}</label> -->
     </div>
 </mat-menu>

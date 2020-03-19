@@ -24,6 +24,7 @@ import { ReminderComponent } from './components/reminder/reminder.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { LabelComponent } from './components/label/label.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import { LabelComponent } from './components/label/label.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   entryComponents: [
     UpdateNoteComponent,
