@@ -32,9 +32,9 @@ export class LabelsService {
     return this.httpService.post(`${environment.labelApiUrl + environment.createLabelUrl}`, label, this.httpOptions);
   }
 
-  addLabel(label: LabelModel, note: NoteModel) {
+  addLabel(labelId: any, noteId: any) {
     console.log('Add label service');
-    return this.httpService.post(`${environment.labelApiUrl + environment.addLabelUrl}?labelId=${label}&noteId=${note}`, {}, this.httpOptions);
+    return this.httpService.post(`${environment.labelApiUrl + environment.addLabelUrl}?labelId=${labelId}&noteId=${noteId}`, {}, this.httpOptions);
   }
 
   deleteLabel(labelId: any) {

@@ -9,4 +9,5 @@ export class NoteModel {
     createdAt: string;
     updatedAt: string;
     reminder: string;
+    labelId: number;
 }

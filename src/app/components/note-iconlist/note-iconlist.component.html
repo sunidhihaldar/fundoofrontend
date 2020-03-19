@@ -69,7 +69,14 @@
         </button>
     </mat-card>
     <div *ngFor="let label of listLabels">
-        <button mat-menu-item>{{label.labelName}}</button>
+        <!-- <button mat-menu-item>{{label.labelName}}</button> -->
         <!-- <mat-list-item><button>{{label.labelName}}</button></mat-list-item> -->
+        <!-- <mat-button-toggle-group multiple>
+            <mat-button-toggle mat-flat-button>{{label.labelName}}</mat-button-toggle>
+        </mat-button-toggle-group> -->
+        <input type="checkbox" (click)="onClickAddLabel(label.labelId, note.noteId)">
+            {{label.labelName}}
+        <!-- <mat-checkbox></mat-checkbox>
+        <label mat-menu-item>{{label.labelName}}</label> -->
     </div>
 </mat-menu>

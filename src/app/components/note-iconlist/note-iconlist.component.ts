@@ -82,5 +82,14 @@ export class NoteIconlistComponent implements OnInit {
       });
      }
 
-
+     onClickAddLabel(labelId, noteId) {
+      console.log('Add label clicked');
+      this.labelService.addLabel(labelId, noteId).subscribe((response: any) => {
+        console.log('Label added: ', labelId, noteId);
+        console.log('Response: ', response);
+      },
+      error => {
+        console.log(error);
+      });
+    }
 }

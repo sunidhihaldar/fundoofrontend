@@ -4,6 +4,7 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { NoteModel } from 'src/app/model/note-model';
 import { UpdateNoteComponent } from '../update-note/update-note.component';
+import { LabelModel } from 'src/app/model/label-model';
 
 @Component({
   selector: 'app-display-note',
@@ -18,6 +19,7 @@ export class DisplayNoteComponent implements OnInit {
   listNotes = [];
   expand: boolean = true;
   token = localStorage.getItem('token');
+  label: LabelModel;
 
   pinNotes = [];
   pin: boolean = true;
